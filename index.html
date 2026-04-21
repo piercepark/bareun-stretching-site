@@ -1667,8 +1667,14 @@ html { scroll-behavior: smooth; }
   .stat__label { margin-top: 0; text-align: right; }
 
   /* Hero actions stack */
-  .hero__actions { flex-direction: column; }
-  .hero__actions .btn { width: 100%; }
+  .hero__actions { flex-direction: column; gap: 8px; }
+  .hero__actions .btn {
+    width: 100%;
+    flex: 0 0 auto;
+    padding: 13px 18px;
+    font-size: 13px;
+    min-height: 0;
+  }
 
   /* Hero chips — drop the bottom decorative one */
   .hero__chip--br { display: none; }

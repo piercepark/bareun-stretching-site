@@ -750,6 +750,16 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
 }
 .program__art svg { width: 56%; color: var(--accent); opacity: 0.9; }
+.program__art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.program__art--photo { background: var(--surface-2); }
+.program__art--photo::after { display: none; }
 .program__art::after {
   content: "";
   position: absolute; inset: 0;
@@ -1877,8 +1887,8 @@ html { scroll-behavior: smooth; }
 
     <div class="programs">
       <article class="program">
-        <div class="program__art">
-          <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="28" r="12" stroke="currentColor" stroke-width="3"></circle><path d="M30 50 Q 50 40, 70 50 L 70 72 Q 50 66, 30 72 Z" stroke="currentColor" stroke-width="3" fill="none"></path><path d="M20 84 L 80 84" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
+        <div class="program__art program__art--photo">
+          <img src="assets/programs/neck-shoulder.png" alt="거북목·라운드숄더 교정">
           <div class="program__play" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
           </div>
@@ -1894,8 +1904,8 @@ html { scroll-behavior: smooth; }
       </article>
 
       <article class="program">
-        <div class="program__art">
-          <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="42" r="10" stroke="currentColor" stroke-width="3"></circle><path d="M40 50 Q 30 70, 20 88" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path><path d="M60 50 Q 80 68, 82 88" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path><circle cx="50" cy="42" r="22" stroke="currentColor" stroke-width="2" stroke-dasharray="3 4"></circle></svg>
+        <div class="program__art program__art--photo">
+          <img src="assets/programs/hip.png" alt="고관절 케어">
           <div class="program__play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></div>
         </div>
         <div>
@@ -1909,8 +1919,8 @@ html { scroll-behavior: smooth; }
       </article>
 
       <article class="program">
-        <div class="program__art">
-          <svg viewBox="0 0 100 100" fill="none"><path d="M50 82 L 50 18" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path><path d="M42 26 L 58 18 L 50 12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M36 86 L 64 86" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path><circle cx="50" cy="50" r="28" stroke="currentColor" stroke-width="2" stroke-dasharray="3 4"></circle></svg>
+        <div class="program__art program__art--photo">
+          <img src="assets/programs/growth.png" alt="키성장">
           <div class="program__play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></div>
         </div>
         <div>
@@ -1924,8 +1934,8 @@ html { scroll-behavior: smooth; }
       </article>
 
       <article class="program">
-        <div class="program__art">
-          <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="22" r="8" stroke="currentColor" stroke-width="3"></circle><path d="M50 30 L 50 60" stroke="currentColor" stroke-width="3"></path><path d="M30 42 L 70 42" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path><path d="M38 60 L 30 84" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path><path d="M62 60 L 70 84" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path></svg>
+        <div class="program__art program__art--photo">
+          <img src="assets/programs/body-conditioning.png" alt="전신 컨디셔닝">
           <div class="program__play" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></div>
         </div>
         <div>

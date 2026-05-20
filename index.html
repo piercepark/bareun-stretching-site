@@ -310,6 +310,8 @@ body {
   color: var(--text-base);
   font-family: var(--font-body);
   line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: break-word;
   overflow-x: hidden;
   transition: background 300ms ease, color 300ms ease;
 }
@@ -347,6 +349,8 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.2px;
   font-size: 18px;
   color: var(--text-base);
+  flex: 0 1 auto;
+  min-width: 0;
 }
 .brand__mark {
   width: 28px;
@@ -360,7 +364,10 @@ img { max-width: 100%; display: block; }
   font-size: 14px;
   font-weight: 800;
 }
-.brand__name { line-height: 1; }
+.brand__name {
+  line-height: 1;
+  white-space: nowrap;
+}
 .brand__sub {
   color: var(--text-subdued);
   font-size: 11px;
@@ -397,6 +404,7 @@ img { max-width: 100%; display: block; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  flex: 0 0 auto;
   padding: 10px 18px;
   background: var(--accent);
   color: var(--accent-ink);
@@ -404,6 +412,9 @@ img { max-width: 100%; display: block; }
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.2px;
+  line-height: 1;
+  white-space: nowrap;
+  word-break: keep-all;
   text-decoration: none;
   transition: transform 200ms ease, background 150ms ease;
 }
@@ -1797,7 +1808,9 @@ html { scroll-behavior: smooth; }
 @media (max-width: 420px) {
   :root { --gutter: 16px; }
 
-  .nav-cta { padding: 7px 12px; font-size: 11px; }
+  .navlinks { display: none; }
+  .topnav__inner { gap: 14px; }
+  .nav-cta { padding: 9px 13px; font-size: 11px; min-height: 34px; }
   .nav-cta span, .nav-cta { letter-spacing: 0; }
 
   .hero__title { font-size: clamp(40px, 11vw, 52px); line-height: 1.22; }

@@ -1034,6 +1034,85 @@ img { max-width: 100%; display: block; }
   width: 24px; height: 1px;
   background: var(--hairline-bright);
 }
+.price__strike {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-subdued);
+  letter-spacing: 0;
+}
+.price__strike s {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.price__save {
+  display: inline-block;
+  padding: 2px 8px;
+  margin-left: 8px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  vertical-align: middle;
+}
+.price__bestbadge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: var(--radius-full);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  vertical-align: middle;
+}
+.price__limited {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-full);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  vertical-align: middle;
+}
+.price__banner {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 18px 0;
+  padding: 12px 16px;
+  background: var(--surface-base);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.4px;
+}
+.price__banner .dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.price__banner b { font-weight: 800; }
+.price__banner small {
+  color: var(--text-subdued);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  margin-left: auto;
+}
+@media (max-width: 560px) {
+  .price__banner { font-size: 11px; padding: 10px 12px; }
+  .price__banner small { display: none; }
+}
 
 /* ------ Badges (02 credentials) ------------------------------------- */
 .badges {
@@ -2037,8 +2116,8 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
 
-      <!-- 시니어코치 · 권승준 -->
-      <div class="instructor">
+      <!-- 시니어코치 · 권승준 (프로필 사진 미수령 — 임시 비표시. 사진 수령 후 hidden 속성 제거) -->
+      <div class="instructor" hidden aria-hidden="true">
         <div class="instructor__avatar"><span>권</span></div>
         <div>
           <div class="instructor__name">시니어코치 · 권승준</div>
@@ -2084,39 +2163,44 @@ html { scroll-behavior: smooth; }
     <!-- PRICE -->
     <div class="section-title-row">
       <h3>서비스 이용 요금표</h3>
-      <span class="small">VAT 포함 · 원(₩)</span>
+      <span class="small">VAT 포함 · 시니어 강사 기준</span>
     </div>
 
     <div class="price">
-      <div class="price__tabs" role="tablist" aria-label="직급 선택">
-        <button class="price__tab is-active" data-tier="lead" role="tab" aria-selected="true">지점장 · 팀장</button>
-        <button class="price__tab" data-tier="senior" role="tab" aria-selected="false">시니어코치</button>
+      <div class="price__banner" role="note">
+        <span class="dot" aria-hidden="true"></span>
+        <span>회원 한정 <b>프리세일</b> · 정식 오픈 + 어버이날 한정</span>
+        <small>정가 대비 평균 32% 할인</small>
       </div>
 
       <div class="price__grid">
         <div class="price__item">
-          <div class="price__label">1회권</div>
-          <div class="price__num" data-price="lead-1">130,000<small>원</small></div>
-          <div class="price__per">회당 130,000원</div>
+          <div class="price__label">첫 방문 체험<span class="price__limited">한정</span></div>
+          <div class="price__num">39,000<small>원</small></div>
+          <div class="price__per">1인 1회 한정 · 1:1 상담 + 단축 세션</div>
+          <div class="price__strike"><s>정가 130,000원</s><span class="price__save">-70%</span></div>
         </div>
         <div class="price__item">
           <div class="price__label">10회권</div>
-          <div class="price__num" data-price="lead-10">110,000<small>원 / 회</small></div>
-          <div class="price__per">총 1,100,000원</div>
+          <div class="price__num">89,000<small>원 / 회</small></div>
+          <div class="price__per">총 890,000원 · 유효 6개월</div>
+          <div class="price__strike"><s>정가 회당 130,000원</s><span class="price__save">-32%</span></div>
         </div>
         <div class="price__item price__item--featured">
-          <div class="price__label">20회권 · 추천</div>
-          <div class="price__num" data-price="lead-20">88,000<small>원 / 회</small></div>
-          <div class="price__per">총 1,760,000원</div>
+          <div class="price__label">20회권<span class="price__bestbadge">BEST</span></div>
+          <div class="price__num">83,000<small>원 / 회</small></div>
+          <div class="price__per">총 1,660,000원 · 유효 8개월</div>
+          <div class="price__strike"><s>정가 회당 130,000원</s><span class="price__save">-36%</span></div>
         </div>
         <div class="price__item">
-          <div class="price__label">30회권</div>
-          <div class="price__num" data-price="lead-30">84,000<small>원 / 회</small></div>
-          <div class="price__per">총 2,520,000원</div>
+          <div class="price__label">가족 30회권</div>
+          <div class="price__num">80,000<small>원 / 회</small></div>
+          <div class="price__per">30+2회 · 총 2,560,000원 · 유효 12개월</div>
+          <div class="price__strike"><s>정가 회당 130,000원</s><span class="price__save">-38%</span></div>
         </div>
       </div>
 
-      <div class="price__note">바른스트레칭은 모두 경력직으로 이루어져 있습니다.</div>
+      <div class="price__note">VAT 포함 · 시니어 강사 기준 · 가족권은 직계가족 분배 가능 · 사전예약 회원 한정 단가</div>
     </div>
 
     <!-- CTA -->
@@ -2406,12 +2490,8 @@ html { scroll-behavior: smooth; }
 
 <!-- ===================== Inline data & behavior ===================== -->
 <script>
-// Price data (VAT 포함, 원)
-const PRICE_DATA = {
-  lead:   { 1: 130000, 10: 110000, 20: 88000, 30: 84000 },
-  senior: { 1: 120000, 10: 100000, 20: 78000, 30: 74000 }
-};
-const fmt = n => n.toLocaleString('ko-KR');
+// Pricing is rendered statically in markup (pre-sale).
+// Previous tab-driven PRICE_DATA logic was removed in the pre-sale switch.
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "theme": "dark"
@@ -2421,15 +2501,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   // Apply persisted theme
   const init = TWEAK_DEFAULTS.theme || 'dark';
   setTheme(init);
-
-  // Price tab switching
-  const tabs = document.querySelectorAll('.price__tab');
-  tabs.forEach(t => t.addEventListener('click', () => {
-    tabs.forEach(x => { x.classList.remove('is-active'); x.setAttribute('aria-selected','false'); });
-    t.classList.add('is-active'); t.setAttribute('aria-selected','true');
-    renderPrices(t.dataset.tier);
-  }));
-  renderPrices('lead');
 
   // Smooth anchor active-state on scroll
   const sections = ['service-01','service-02','service-03'].map(id => document.getElementById(id));
@@ -2467,22 +2538,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   }
 })();
 
-function renderPrices(tier){
-  const row = PRICE_DATA[tier];
-  setPrice('lead-1',  row[1],  '회당');
-  setPrice('lead-10', row[10], '/ 회', row[10] * 10);
-  setPrice('lead-20', row[20], '/ 회', row[20] * 20);
-  setPrice('lead-30', row[30], '/ 회', row[30] * 30);
-}
-function setPrice(key, val, suffix, total){
-  const el = document.querySelector(`[data-price="${key}"]`);
-  if (!el) return;
-  const numFmt = val.toLocaleString('ko-KR');
-  el.innerHTML = `${numFmt}<small>원 ${suffix}</small>`;
-  const per = el.nextElementSibling;
-  if (per && total) per.textContent = `총 ${total.toLocaleString('ko-KR')}원`;
-  else if (per && !total) per.textContent = `회당 ${numFmt}원`;
-}
 </script>
 
 

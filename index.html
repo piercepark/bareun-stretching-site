@@ -96,6 +96,9 @@
     }
 
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
       font-family: var(--serif-kr);
       font-weight: 700;
       font-size: 20px;
@@ -105,13 +108,26 @@
       min-width: 0;
     }
 
+    .logo-mark {
+      width: 23px;
+      height: 26px;
+      flex: 0 0 auto;
+      object-fit: contain;
+      opacity: 0.94;
+      margin-left: 4px;
+    }
+
+    .logo-text {
+      white-space: nowrap;
+    }
+
     .logo small {
       font-family: var(--mono);
       font-weight: 400;
       font-size: 11px;
       letter-spacing: 0.18em;
       color: var(--text-muted);
-      margin-left: 8px;
+      margin-left: 2px;
       word-break: normal;
     }
 
@@ -144,6 +160,13 @@
 
       .logo {
         font-size: 19px;
+        gap: 7px;
+      }
+
+      .logo-mark {
+        width: 21px;
+        height: 24px;
+        margin-left: 2px;
       }
 
       .logo small {
@@ -1194,7 +1217,11 @@
 
 <header class="site-header">
   <div class="container nav">
-    <div class="logo">바른스트레칭<small>BAREUN STRETCHING</small></div>
+    <div class="logo">
+      <span class="logo-text">바른스트레칭</span>
+      <small>BAREUN STRETCHING</small>
+      <img class="logo-mark" src="assets/brand/bareun-logo.svg" alt="" aria-hidden="true">
+    </div>
     <a class="nav-cta" href="https://m.site.naver.com/27pvw" target="_blank" rel="noopener">첫 체험 예약</a>
   </div>
 </header>

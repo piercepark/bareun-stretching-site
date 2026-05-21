@@ -265,6 +265,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       animation: kenburns 22s ease-in-out infinite alternate;
     }
 
@@ -762,6 +763,63 @@
     }
     .why-promise b { color: var(--accent-warm); font-weight: 700; }
 
+    .care-scenes {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      margin: 96px auto 0;
+    }
+
+    .care-scene {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .care-scene img {
+      width: 100%;
+      aspect-ratio: 1.18 / 1;
+      object-fit: cover;
+      background: var(--sub-beige);
+    }
+
+    .care-scene figcaption {
+      padding: 18px 18px 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .care-scene strong {
+      display: block;
+      font-family: var(--serif-kr);
+      font-size: 17px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: var(--primary-dark);
+      margin-bottom: 7px;
+    }
+
+    .care-scene span {
+      display: block;
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .care-scenes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .care-scenes {
+        grid-template-columns: 1fr;
+        margin-top: 72px;
+      }
+    }
+
     /* ============== VS (DIFFERENTIATION + TRUST) ============== */
     .vs { background: var(--primary-light); }
     .vs-head { text-align: center; max-width: 880px; margin: 0 auto 80px; }
@@ -775,54 +833,154 @@
     .vs-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 26px;
       margin-bottom: 120px;
+      align-items: stretch;
     }
     @media (max-width: 900px) {
       .vs-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 80px; }
+      .vs-card,
+      .vs-card--featured {
+        min-height: auto;
+        transform: none;
+      }
     }
     .vs-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 40px 32px;
-      transition: transform .35s ease, box-shadow .35s ease;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 440px;
+      background: rgba(255, 255, 255, 0.54);
+      border: 1px solid rgba(201, 168, 118, 0.22);
+      border-radius: 6px;
+      padding: 42px 34px 38px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.38);
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .vs-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: rgba(201, 168, 118, 0.28);
     }
     .vs-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 20px 48px -24px rgba(26, 31, 43, 0.18);
     }
     .vs-card--featured {
-      background: var(--primary-dark);
-      border-color: var(--primary-dark);
+      z-index: 1;
+      min-height: 474px;
+      padding: 48px 38px 44px;
+      background: linear-gradient(145deg, #111724 0%, #1A1F2B 54%, #24334A 100%);
+      border: 1.5px solid var(--accent-warm);
+      box-shadow: 0 28px 72px -34px rgba(26, 31, 43, 0.55);
+      transform: translateY(-18px);
     }
-    .vs-card__tag {
+    .vs-card--featured::before {
+      height: 8px;
+      background: var(--accent-warm);
+    }
+    .vs-card--featured::after {
+      content: "BAREUN";
+      position: absolute;
+      right: 28px;
+      bottom: 22px;
       font-family: var(--mono);
       font-size: 11px;
-      letter-spacing: 0.2em;
-      color: var(--accent-warm);
-      text-transform: uppercase;
-      margin-bottom: 28px;
+      letter-spacing: 0.28em;
+      color: rgba(250, 248, 244, 0.18);
     }
-    .vs-card dl { display: grid; gap: 20px; margin: 0; }
+    .vs-card__tag {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      min-height: 34px;
+      padding: 9px 12px 8px;
+      border: 1px solid rgba(201, 168, 118, 0.28);
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      color: rgba(26, 31, 43, 0.62);
+      text-transform: uppercase;
+      margin-bottom: 26px;
+      background: rgba(250, 248, 244, 0.72);
+      word-break: keep-all;
+    }
+    .vs-card--featured .vs-card__tag {
+      color: var(--primary-dark);
+      border-color: var(--accent-warm);
+      background: var(--accent-warm);
+    }
+    .vs-card__summary {
+      min-height: 124px;
+      font-family: var(--serif-kr);
+      font-weight: 700;
+      font-size: clamp(20px, 1.8vw, 28px);
+      line-height: 1.42;
+      letter-spacing: -0.01em;
+      color: rgba(26, 31, 43, 0.84);
+      margin-bottom: 30px;
+    }
+    .vs-card--featured .vs-card__summary {
+      min-height: 140px;
+      color: var(--primary-light);
+      font-size: clamp(23px, 2.2vw, 34px);
+      line-height: 1.32;
+    }
+    .vs-card dl {
+      display: grid;
+      gap: 0;
+      margin: 0;
+    }
     .vs-card dt {
       font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: rgba(107, 107, 107, 0.74);
+      padding-top: 20px;
+      border-top: 1px solid rgba(201, 168, 118, 0.2);
       margin-bottom: 6px;
     }
+    .vs-card dt:first-of-type { padding-top: 0; border-top: 0; }
     .vs-card--featured dt { color: rgba(250, 248, 244, 0.55); }
     .vs-card dd {
+      position: relative;
       font-family: var(--serif-kr);
       font-weight: 500;
       font-size: 15px;
       line-height: 1.6;
-      color: var(--primary-dark);
-      margin: 0;
+      color: rgba(26, 31, 43, 0.88);
+      margin: 0 0 20px;
+      padding-left: 16px;
     }
-    .vs-card--featured dd { color: var(--primary-light); }
+    .vs-card dd::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(201, 168, 118, 0.45);
+    }
+    .vs-card dd:last-child { margin-bottom: 0; }
+    .vs-card--featured dd {
+      color: var(--primary-light);
+      font-size: 16px;
+      padding-left: 20px;
+    }
+    .vs-card--featured dd::before {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-warm);
+      box-shadow: 0 0 0 5px rgba(201, 168, 118, 0.14);
+    }
 
     .vs-trust {
       max-width: 920px;
@@ -983,6 +1141,19 @@
         padding: 28px 24px;
       }
 
+      .vs-card__summary {
+        min-height: auto;
+        font-size: 21px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+
+      .vs-card--featured .vs-card__summary {
+        min-height: auto;
+        font-size: 24px;
+        line-height: 1.5;
+      }
+
       .vs-trust {
         padding-top: 48px;
       }
@@ -1044,9 +1215,8 @@
       </div>
 
       <div class="hero-visual reveal" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80"
-             alt="시술 베드에 평온하게 누워 패시브 스트레칭 케어를 받는 모습"
-             onerror="this.onerror=null;this.src='https://picsum.photos/seed/bareun-hero/900/1100';">
+        <img src="assets/hero/hero-session.png"
+             alt="물리치료사 강사진과 1:1 패시브 스트레칭 케어를 표현한 바른스트레칭 이미지">
       </div>
     </div>
   </div>
@@ -1074,6 +1244,40 @@
 
     <div class="why-promise reveal">
       <p>누워만 계세요.<br><b>전문 의료 면허를 가진 전문가</b>가<br>운동 효과를 만들어드립니다.</p>
+    </div>
+
+    <div class="care-scenes reveal" aria-label="바른스트레칭 대표 케어 이미지">
+      <figure class="care-scene">
+        <img src="assets/programs/neck-shoulder.png" alt="목과 어깨 가동범위 케어를 받는 실제 세션 사진">
+        <figcaption>
+          <strong>목·어깨 ROM</strong>
+          <span>긴장 부위를 누르지 않고 관절 가동 범위를 회복합니다.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="care-scene">
+        <img src="assets/programs/body-conditioning.png" alt="전신 정렬과 체형 밸런스 케어를 받는 실제 세션 사진">
+        <figcaption>
+          <strong>전신 컨디셔닝</strong>
+          <span>몸의 좌우 균형과 움직임 패턴을 함께 봅니다.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="care-scene">
+        <img src="assets/programs/hip.png" alt="고관절과 골반 가동성 케어를 받는 실제 세션 사진">
+        <figcaption>
+          <strong>골반·고관절</strong>
+          <span>앉는 시간이 긴 몸의 하체 가동성을 안전하게 열어줍니다.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="care-scene">
+        <img src="assets/programs/growth.png" alt="성장기 자세와 움직임 케어를 떠올릴 수 있는 실제 스트레칭 사진">
+        <figcaption>
+          <strong>성장기 케어</strong>
+          <span>성장기 자세 습관과 유연성을 부드럽게 관리합니다.</span>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -1147,6 +1351,7 @@
     <div class="vs-grid">
       <article class="vs-card reveal">
         <p class="vs-card__tag">일반 마사지</p>
+        <p class="vs-card__summary">시원함은 빠르지만<br>효과는 표면에 머뭅니다.</p>
         <dl>
           <dt>목적</dt><dd>근육 표면의 일시적인 이완</dd>
           <dt>관리자</dt><dd>일반 관리사 (자격 무관)</dd>
@@ -1156,6 +1361,7 @@
 
       <article class="vs-card reveal">
         <p class="vs-card__tag">병원 도수치료</p>
+        <p class="vs-card__summary">통증 원인을 찾고<br>치료 중심으로 접근합니다.</p>
         <dl>
           <dt>목적</dt><dd>통증 치료 및 정형외과적 정렬 개선</dd>
           <dt>관리자</dt><dd>물리치료사</dd>
@@ -1164,7 +1370,8 @@
       </article>
 
       <article class="vs-card vs-card--featured reveal">
-        <p class="vs-card__tag">애프터 패시브 스트레칭</p>
+        <p class="vs-card__tag">바른스트레칭 핵심 차이</p>
+        <p class="vs-card__summary">치료와 운동 사이,<br>몸을 바꾸는 1:1 케어입니다.</p>
         <dl>
           <dt>목적</dt><dd>심부 근육 이완 및 관절 가동성(ROM) 극대화</dd>
           <dt>관리자</dt><dd>물리치료사 면허 보유 전문 강사진</dd>
@@ -1174,7 +1381,7 @@
     </div>
 
     <div class="vs-trust reveal">
-      <p class="vs-trust__quote">애프터 요가 &amp; 필라테스는<br>아무나 가르치지 않습니다.</p>
+      <p class="vs-trust__quote">애프터 스트레칭&amp;필라테스는<br>아무나 가르치지 않습니다.</p>
       <p class="vs-trust__body">인체의 뼈와 근육, 신경계를 깊이 이해하는 물리치료사 출신이자 스포츠 의학·체형 교정 전문가들이 회원님의 당일 컨디션과 근육 긴장도를 면밀히 분석한 후, 가장 안전한 가동 범위 내에서 정교하게 케어를 진행합니다.</p>
     </div>
   </div>

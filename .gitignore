@@ -15,3 +15,8 @@
 
 # Temp
 /tmp/
+
+# Content drafts / internal notes (keep local only)
+index-content.md
+바른스트레칭-홈페이지-콘텐츠.md
+홈페이지 들어갈 내용.docx

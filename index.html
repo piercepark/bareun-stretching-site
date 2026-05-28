@@ -55,6 +55,12 @@
 
     img { display: block; max-width: 100%; }
 
+    /* Desktop-only forced line break: hides on mobile so text flows naturally */
+    br.br-d { display: none; }
+    @media (min-width: 769px) {
+      br.br-d { display: inline; }
+    }
+
     .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -622,6 +628,103 @@
         padding: 18px 32px;
         font-size: 15px;
       }
+    }
+
+    /* ============== SPACE (시설) ============== */
+    .space {
+      background: var(--primary-light);
+      border-top: 1px solid var(--border);
+    }
+
+    .space-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 64px;
+    }
+
+    .space-sub {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+
+    .space-hero {
+      margin: 0 0 28px;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .space-hero > img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+    }
+
+    .space-hero figcaption {
+      margin-top: 14px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .space-hero--bottom { margin: 28px 0 0; }
+    .space-hero--bottom > img { aspect-ratio: 16 / 9; }
+
+    .space-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .space-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    }
+
+    @media (max-width: 560px) {
+      .space-grid { grid-template-columns: 1fr; gap: 14px; }
+    }
+
+    .space-tile {
+      margin: 0;
+    }
+
+    .space-tile__frame {
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .space-tile img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      transition: transform .55s ease;
+    }
+
+    .space-tile:hover img {
+      transform: scale(1.04);
+    }
+
+    .space-tile figcaption {
+      margin-top: 10px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding-left: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .space-head { margin-bottom: 44px; }
+      .space-sub { font-size: 15px; }
+      .space-hero > img { aspect-ratio: 4 / 3; }
+      .space-hero--bottom > img { aspect-ratio: 4 / 3; }
     }
 
     /* ============== FAQ ============== */
@@ -1795,7 +1898,7 @@
   <div class="container">
     <header class="why-head reveal">
       <p class="eyebrow">Why Passive Stretching</p>
-      <h2 class="why-title">아무리 폼롤러를 굴려도,<br>스스로 스트레칭을 해도<br>다음 날이면 왜 다시 몸이 무겁고 뭉칠까요?</h2>
+      <h2 class="why-title">아무리 폼롤러를 굴려도,<br class="br-d">스스로 스트레칭을 해도<br class="br-d">다음 날이면 왜 다시 몸이 무겁고 뭉칠까요?</h2>
       <p class="why-sub">근육과 관절의 해부학적 구조를 가장 잘 아는 ‘물리치료사’가 직접 1:1로 케어합니다. 이제 완전히 힘을 뺀 채, 내 몸을 전문가에게 맡기세요.</p>
     </header>
 
@@ -1919,7 +2022,7 @@
     <div class="vs-grid">
       <article class="vs-card reveal">
         <p class="vs-card__tag">일반 마사지</p>
-        <p class="vs-card__summary">잠깐의 이완은 있지만<br>몸의 변화로 이어지진 않습니다.</p>
+        <p class="vs-card__summary">잠깐의 이완은 있지만<br class="br-d">몸의 변화로 이어지진 않습니다.</p>
         <dl>
           <dt>목적</dt><dd>근육 표면의 일시적인 이완</dd>
           <dt>관리자</dt><dd>일반 관리사 (자격 무관)</dd>
@@ -1929,7 +2032,7 @@
 
       <article class="vs-card reveal">
         <p class="vs-card__tag">병원 도수치료</p>
-        <p class="vs-card__summary">통증 원인을 찾고<br>치료 중심으로 접근합니다.</p>
+        <p class="vs-card__summary">통증 원인을 찾고<br class="br-d">치료 중심으로 접근합니다.</p>
         <dl>
           <dt>목적</dt><dd>통증 치료 및 정형외과적 정렬 개선</dd>
           <dt>관리자</dt><dd>물리치료사</dd>
@@ -1939,7 +2042,7 @@
 
       <article class="vs-card vs-card--featured reveal">
         <p class="vs-card__tag">바른스트레칭 핵심 차이</p>
-        <p class="vs-card__summary">치료와 운동 사이,<br>몸을 바꾸는 1:1 케어입니다.</p>
+        <p class="vs-card__summary">치료와 운동 사이,<br class="br-d">몸을 바꾸는 1:1 케어입니다.</p>
         <dl>
           <dt>목적</dt><dd>심부 근육 이완 및 관절 가동성(ROM) 극대화</dd>
           <dt>관리자</dt><dd>물리치료사 면허 보유 전문 강사진</dd>
@@ -2033,7 +2136,55 @@
   </div>
 </section>
 
-<!-- ============== Section 6 · FAQ ============== -->
+<!-- ============== Section 6 · SPACE (시설) ============== -->
+<section class="space" id="space" aria-label="시설 둘러보기">
+  <div class="container">
+    <header class="space-head reveal">
+      <p class="eyebrow">Space · 시설</p>
+      <h2 class="section-title" style="margin-bottom:0;">혼자 머무는<br>1:1 케어 공간.</h2>
+      <p class="space-sub">서울숲 한복판, 천장이 높고 단정한 흐름의 스튜디오. 케어 룸·로비·바디체크 코너·라커룸·야외 테라스까지 한 층에 모여 있습니다.</p>
+    </header>
+
+    <figure class="space-hero reveal">
+      <img src="assets/facility/stretching-room-wide.jpg" alt="바른스트레칭 서울숲점 스튜디오 와이드 전경 — 높은 천장, 캐딜락 기구, 1:1 케어 베드" loading="lazy">
+      <figcaption>1:1 케어 룸 · Wide view</figcaption>
+    </figure>
+
+    <div class="space-grid">
+      <figure class="space-tile reveal">
+        <div class="space-tile__frame"><img src="assets/facility/stretching-room-front.jpg" alt="스트레칭 베드 정면" loading="lazy"></div>
+        <figcaption>스트레칭 베드</figcaption>
+      </figure>
+      <figure class="space-tile reveal">
+        <div class="space-tile__frame"><img src="assets/facility/door-signage.jpg" alt="PT 룸 입구 · After 필라테스 × 바른스트레칭" loading="lazy"></div>
+        <figcaption>PT 룸 입구</figcaption>
+      </figure>
+      <figure class="space-tile reveal">
+        <div class="space-tile__frame"><img src="assets/facility/lobby.jpg" alt="로비와 라운지 공간" loading="lazy"></div>
+        <figcaption>로비 · 라운지</figcaption>
+      </figure>
+      <figure class="space-tile reveal">
+        <div class="space-tile__frame"><img src="assets/facility/inbody-check.jpg" alt="인바디 측정기 · 바디체크 코너" loading="lazy"></div>
+        <figcaption>바디체크 · InBody</figcaption>
+      </figure>
+      <figure class="space-tile reveal">
+        <div class="space-tile__frame"><img src="assets/facility/locker-room.jpg" alt="라커룸과 벤치" loading="lazy"></div>
+        <figcaption>라커룸</figcaption>
+      </figure>
+      <figure class="space-tile reveal">
+        <div class="space-tile__frame"><img src="assets/facility/outdoor-terrace.jpg" alt="야외 테라스" loading="lazy"></div>
+        <figcaption>야외 테라스</figcaption>
+      </figure>
+    </div>
+
+    <figure class="space-hero space-hero--bottom reveal">
+      <img src="assets/facility/building-exterior.jpg" alt="건물 외관 — 검정 벽돌 외벽과 YOGA·PILATES 사인" loading="lazy">
+      <figcaption>왕십리로 50 · 건물 외관</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============== Section 7 · FAQ ============== -->
 <section class="faq" id="faq" aria-label="자주 묻는 질문">
   <div class="container">
     <header class="faq-head reveal">
@@ -2131,7 +2282,7 @@
   </div>
 </section>
 
-<!-- ============== Section 7 · VISIT (오시는길) ============== -->
+<!-- ============== Section 8 · VISIT (오시는길) ============== -->
 <section class="visit" id="visit" aria-label="오시는길">
   <div class="container">
     <header class="visit-head reveal">
@@ -2182,12 +2333,12 @@
   </div>
 </section>
 
-<!-- ============== Section 8 · CLOSING ============== -->
+<!-- ============== Section 9 · CLOSING ============== -->
 <section class="closing" id="booking" aria-label="첫 방문 체험 예약">
   <div class="container">
     <p class="eyebrow">Book Your First Visit</p>
     <h2>내 몸의 숨겨진<br>가동 범위를 찾을 시간.</h2>
-    <p>물리치료사가 직접 찾아주는 내 몸의 진정한 가뿐함.<br>지금 첫 방문 혜택으로 부담 없이 시작해 보세요.</p>
+    <p>물리치료사가 직접 찾아주는 내 몸의 진정한 가뿐함.<br class="br-d">지금 첫 방문 혜택으로 부담 없이 시작해 보세요.</p>
     <a class="btn btn-primary" href="https://m.site.naver.com/27pvw" target="_blank" rel="noopener" aria-label="물리치료사 1:1 패시브 스트레칭 첫 방문 체험 신청하기">
       첫 방문 체험 신청하기
       <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -2196,7 +2347,7 @@
   </div>
 </section>
 
-<!-- ============== Section 9 · FOOTER ============== -->
+<!-- ============== Section 10 · FOOTER ============== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">

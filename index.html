@@ -624,6 +624,150 @@
       }
     }
 
+    /* ============== FAQ ============== */
+    .faq {
+      background: var(--primary-light);
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 72px;
+    }
+
+    .faq-sub {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+
+    .faq-list {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-list .faq-item:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 32px 8px 32px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 28px;
+      font-family: var(--serif-kr);
+      font-weight: 700;
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--primary-dark);
+      letter-spacing: -0.01em;
+      transition: color .25s ease;
+    }
+
+    .faq-item > summary::-webkit-details-marker { display: none; }
+    .faq-item > summary::marker { content: ""; }
+
+    .faq-item > summary:hover { color: var(--accent-warm); }
+
+    .faq-q-label {
+      flex-shrink: 0;
+      font-family: var(--serif-en);
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--accent-warm);
+      line-height: 1.7;
+      margin-right: 4px;
+    }
+
+    .faq-q-text { flex: 1; }
+
+    .faq-toggle {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 6px;
+      position: relative;
+      transition: transform .35s ease;
+    }
+
+    .faq-toggle::before,
+    .faq-toggle::after {
+      content: "";
+      position: absolute;
+      background: var(--primary-dark);
+      transition: opacity .25s ease;
+    }
+
+    .faq-toggle::before {
+      top: 50%; left: 0; right: 0; height: 1.5px;
+      transform: translateY(-50%);
+    }
+
+    .faq-toggle::after {
+      left: 50%; top: 0; bottom: 0; width: 1.5px;
+      transform: translateX(-50%);
+    }
+
+    .faq-item[open] .faq-toggle { transform: rotate(180deg); }
+    .faq-item[open] .faq-toggle::after { opacity: 0; }
+
+    .faq-body {
+      padding: 0 50px 36px 44px;
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: var(--text-body);
+    }
+
+    .faq-body p { margin-bottom: 14px; }
+    .faq-body p:last-child { margin-bottom: 0; }
+
+    .faq-body ul {
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+    }
+
+    .faq-body ul li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 8px;
+      color: var(--text-body);
+    }
+
+    .faq-body ul li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0.85em;
+      width: 8px; height: 1px;
+      background: var(--accent-warm);
+    }
+
+    @media (max-width: 768px) {
+      .faq-head { margin-bottom: 48px; }
+      .faq-sub { font-size: 15px; }
+      .faq-item > summary {
+        padding: 24px 4px 24px 0;
+        font-size: 16.5px;
+        gap: 16px;
+      }
+      .faq-q-label { font-size: 14px; }
+      .faq-toggle { width: 18px; height: 18px; margin-top: 4px; }
+      .faq-body {
+        padding: 0 4px 28px 28px;
+        font-size: 14.5px;
+        line-height: 1.8;
+      }
+    }
+
     /* ============== FOOTER ============== */
     .footer {
       background: var(--primary-light);
@@ -1656,7 +1800,105 @@
   </div>
 </section>
 
-<!-- ============== Section 6 · CLOSING ============== -->
+<!-- ============== Section 6 · FAQ ============== -->
+<section class="faq" id="faq" aria-label="자주 묻는 질문">
+  <div class="container">
+    <header class="faq-head reveal">
+      <p class="eyebrow">Frequently Asked</p>
+      <h2 class="section-title">자주 묻는 질문</h2>
+      <p class="faq-sub">방문 전 가장 많이 궁금해하시는 점들을 모았습니다. 더 궁금한 점은 카카오톡 채널 또는 전화로 편하게 문의해 주세요.</p>
+    </header>
+
+    <div class="faq-list reveal">
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q-label">Q1.</span>
+          <span class="faq-q-text">일반 마사지와는 무엇이 다른가요?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-body">
+          <p>마사지는 손으로 근육 겉면을 주물러 일시적인 순환을 돕는 방식입니다. 반면 패시브 스트레칭은 해부학적 지식을 바탕으로 관절의 가동 범위를 안전하게 늘려주는 ‘기능적 이완’입니다. 스스로 풀기 힘든 속근육까지 타겟팅하여 체형 정렬과 근본적인 뻣뻣함을 해결합니다.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q-label">Q2.</span>
+          <span class="faq-q-text">병원에서 받는 도수치료와 비슷한 건가요?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-body">
+          <p>도수치료는 질환의 ‘치료’를 목적으로 병원에서 진행되는 의료 행위입니다. 패시브 스트레칭은 일상 속 잘못된 습관으로 굳어진 몸을 리셋하고 만성 피로를 해소하는 ‘지속 가능한 관리 및 예방 웰니스 케어’입니다.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q-label">Q3.</span>
+          <span class="faq-q-text">요가나 필라테스를 하고 있는데, 따로 받을 필요가 있나요?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-body">
+          <p>네, 기존 운동의 효과를 극대화하기 위해 적극 추천합니다. 혼자 운동할 때는 몸이 긴장해 근육을 늘리는 데 한계가 있지만, 전문가에게 몸을 맡기면 근육이 완전히 이완되어 깊은 가동 범위까지 안전하게 도달합니다. 이는 부상을 방지하고 운동 능력을 높여줍니다.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q-label">Q4.</span>
+          <span class="faq-q-text">몸이 너무 뻣뻣한데 다치거나 아프지 않을까요?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-body">
+          <p>무작정 몸을 꺾는 과격한 방식이 아니니 안심하셔도 됩니다. 세션 전 현재 관절 가동 범위를 먼저 측정하고, 호흡을 맞추며 1:1 개인 맞춤형 강도로 진행됩니다. 통증 없이 몸이 시원하게 열리는 이완감을 선사합니다.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q-label">Q5.</span>
+          <span class="faq-q-text">스트레칭을 진행해 주시는 선생님들은 어떤 분들인가요?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-body">
+          <p>인체 해부학과 스포츠 의학 등 전문 지식을 체계적으로 이수한 전문가들이 진행합니다. 특히 물리치료사 면허와 재활·전문 운동 자격을 갖춘 베테랑 강사진이 회원님의 체형을 정확히 분석하여 안전하게 전담 케어합니다.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q-label">Q6.</span>
+          <span class="faq-q-text">어떤 사람들에게 가장 효과적인가요?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-body">
+          <p>이런 분들께 강력히 추천합니다.</p>
+          <ul>
+            <li>거북목, 라운드 숄더로 목과 어깨가 늘 묵직한 직장인</li>
+            <li>강도 높은 운동 후 빠른 근육 리커버리가 필요한 분</li>
+            <li>몸이 너무 뻣뻣해 혼자서는 스트레칭이 안 되는 분</li>
+            <li>좌우 불균형이 심해 바른 체형 교정을 원하시는 분</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          <span class="faq-q-label">Q7.</span>
+          <span class="faq-q-text">효과는 얼마나 지속되나요? 얼마나 자주 받아야 하죠?</span>
+          <span class="faq-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-body">
+          <p>단 1회 만으로도 즉각적인 가동 범위 개선과 개운함을 느낄 수 있습니다. 다만 굳어진 근육이 다시 돌아가는 것을 막고 바른 정렬을 유지하기 위해, 초기에는 주 1–2회 규칙적으로 관리를 받으시는 것을 권장합니다.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section 7 · CLOSING ============== -->
 <section class="closing" id="booking" aria-label="첫 방문 체험 예약">
   <div class="container">
     <p class="eyebrow">Book Your First Visit</p>

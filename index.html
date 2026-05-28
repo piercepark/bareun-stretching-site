@@ -768,6 +768,239 @@
       }
     }
 
+    /* ============== VISIT (오시는길) ============== */
+    .visit {
+      background: var(--primary-light);
+      border-top: 1px solid var(--border);
+    }
+
+    .visit-head {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 64px;
+    }
+
+    .visit-sub {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .visit-grid { grid-template-columns: 1fr; gap: 18px; }
+    }
+
+    /* Map "card" — clickable, no real map but visual pin */
+    .visit-map {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 420px;
+      padding: 56px 36px 36px;
+      background: linear-gradient(160deg, #FAF8F4 0%, #F3EBDD 100%);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--primary-dark);
+      overflow: hidden;
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .visit-map::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(201, 168, 118, 0.18) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .visit-map:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 50px -28px rgba(26, 31, 43, 0.22);
+      border-color: var(--accent-warm);
+    }
+
+    .visit-map__art {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .visit-map__pin {
+      width: 64px;
+      height: 80px;
+      color: var(--accent-warm);
+      position: relative;
+      z-index: 2;
+    }
+
+    .visit-map__rings {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 200px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .visit-map__rings span {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border: 1px solid rgba(201, 168, 118, 0.35);
+      border-radius: 999px;
+    }
+
+    .visit-map__rings span:nth-child(1) { width: 80px; height: 80px; opacity: 0.95; }
+    .visit-map__rings span:nth-child(2) { width: 140px; height: 140px; opacity: 0.55; }
+    .visit-map__rings span:nth-child(3) { width: 200px; height: 200px; opacity: 0.25; }
+
+    .visit-map__meta {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      margin-top: 28px;
+      margin-bottom: 26px;
+    }
+
+    .visit-map__label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .visit-map__addr {
+      font-family: var(--serif-kr);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--primary-dark);
+      letter-spacing: -0.01em;
+    }
+
+    .visit-map__cta {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: var(--primary-dark);
+      color: var(--primary-light);
+      font-family: var(--sans-kr);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    .visit-map:hover .visit-map__cta {
+      background: var(--accent-warm);
+      color: var(--primary-dark);
+    }
+
+    .visit-map__arrow { width: 14px; height: 14px; }
+
+    /* Info card */
+    .visit-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 38px;
+      background: rgba(255, 255, 255, 0.54);
+      border: 1px solid rgba(201, 168, 118, 0.22);
+      border-radius: 6px;
+    }
+
+    .visit-info dl {
+      display: grid;
+      gap: 0;
+      margin: 0;
+    }
+
+    .visit-info dt {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(107, 107, 107, 0.78);
+      padding-top: 22px;
+      border-top: 1px solid rgba(201, 168, 118, 0.2);
+      margin-bottom: 8px;
+    }
+
+    .visit-info dt:first-of-type { padding-top: 0; border-top: 0; }
+
+    .visit-info dd {
+      font-family: var(--serif-kr);
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(26, 31, 43, 0.88);
+      margin: 0 0 22px;
+    }
+
+    .visit-info dd:last-child { margin-bottom: 0; }
+
+    .visit-info__note {
+      display: inline-block;
+      margin-top: 4px;
+      font-family: var(--sans-kr);
+      font-weight: 400;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      letter-spacing: -0.005em;
+    }
+
+    .visit-info__tel {
+      color: var(--primary-dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-warm);
+      padding-bottom: 2px;
+      transition: color .25s ease, border-color .25s ease;
+    }
+
+    .visit-info__tel:hover {
+      color: var(--accent-warm);
+      border-color: var(--primary-dark);
+    }
+
+    @media (max-width: 900px) {
+      .visit-head { margin-bottom: 44px; }
+      .visit-sub { font-size: 15px; }
+      .visit-map {
+        min-height: 360px;
+        padding: 44px 28px 32px;
+      }
+      .visit-map__addr { font-size: 18px; }
+      .visit-info {
+        padding: 36px 28px;
+      }
+      .visit-info dd { font-size: 15px; }
+    }
+
     /* ============== FOOTER ============== */
     .footer {
       background: var(--primary-light);
@@ -1898,7 +2131,58 @@
   </div>
 </section>
 
-<!-- ============== Section 7 · CLOSING ============== -->
+<!-- ============== Section 7 · VISIT (오시는길) ============== -->
+<section class="visit" id="visit" aria-label="오시는길">
+  <div class="container">
+    <header class="visit-head reveal">
+      <p class="eyebrow">Visit · 오시는길</p>
+      <h2 class="section-title" style="margin-bottom:0;">서울숲역 2번 출구,<br>도보 3분.</h2>
+      <p class="visit-sub">서울숲역에서 가깝고 한적한 길로 이어집니다. 처음 방문하시는 분도 헤매지 않도록 입구를 안내해 드립니다.</p>
+    </header>
+
+    <div class="visit-grid">
+      <a class="visit-map reveal" href="https://map.naver.com/p/entry/place/1183681566" target="_blank" rel="noopener" aria-label="네이버 지도에서 바른스트레칭 서울숲점 위치 보기">
+        <div class="visit-map__art" aria-hidden="true">
+          <div class="visit-map__rings">
+            <span></span><span></span><span></span>
+          </div>
+          <svg class="visit-map__pin" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 4C18.7452 4 8 14.7452 8 28C8 47 32 76 32 76C32 76 56 47 56 28C56 14.7452 45.2548 4 32 4Z" stroke="currentColor" stroke-width="3" fill="rgba(201,168,118,0.18)"/>
+            <circle cx="32" cy="28" r="9" stroke="currentColor" stroke-width="3" fill="var(--primary-light)"/>
+          </svg>
+        </div>
+        <div class="visit-map__meta">
+          <p class="visit-map__label">Bareun Stretching · 서울숲점</p>
+          <p class="visit-map__addr">서울 성동구 왕십리로 50, B1</p>
+        </div>
+        <span class="visit-map__cta">
+          네이버 지도에서 보기
+          <svg class="visit-map__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+
+      <div class="visit-info reveal">
+        <dl>
+          <dt>주소</dt>
+          <dd>서울 성동구 왕십리로 50, B1<br><span class="visit-info__note">애프터 요가&amp;필라테스 내</span></dd>
+
+          <dt>대중교통</dt>
+          <dd>분당선·수인분당선 서울숲역<br>2번 출구 도보 3분</dd>
+
+          <dt>전화</dt>
+          <dd><a href="tel:010-3454-2297" class="visit-info__tel">010-3454-2297</a></dd>
+
+          <dt>운영시간</dt>
+          <dd>평일 10:00 — 21:00<br>주말 10:00 — 18:00<br><span class="visit-info__note">예약제 · 1:1 케어</span></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section 8 · CLOSING ============== -->
 <section class="closing" id="booking" aria-label="첫 방문 체험 예약">
   <div class="container">
     <p class="eyebrow">Book Your First Visit</p>
@@ -1912,15 +2196,15 @@
   </div>
 </section>
 
-<!-- ============== Section 7 · FOOTER ============== -->
+<!-- ============== Section 9 · FOOTER ============== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>바른스트레칭</h3>
         <p class="en">Bareun Stretching</p>
-        <p>서울특별시 성동구 서울숲</p>
-        <p>After Yoga & Pilates 내</p>
+        <p>서울 성동구 왕십리로 50, B1</p>
+        <p>After Yoga &amp; Pilates 내</p>
         <p>서울숲역 2번 출구 도보 3분</p>
       </div>
 
@@ -1935,7 +2219,7 @@
         <h4>Booking</h4>
         <a href="https://m.site.naver.com/27pvw" target="_blank" rel="noopener" aria-label="네이버 예약 페이지로 이동">네이버 예약</a>
         <a href="#" aria-label="카카오톡 채널로 이동">카카오톡 채널</a>
-        <a href="tel:010-4463-2297" aria-label="전화 문의">전화 문의</a>
+        <a href="tel:010-3454-2297" aria-label="전화 문의">010-3454-2297</a>
       </div>
 
       <div class="footer-col">

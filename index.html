@@ -2413,5 +2413,17 @@
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 
+<script>
+  // Report document height to a parent page when embedded via <iframe>
+  // (e.g. afteryogapilates.com / imweb). Lets the parent size the iframe
+  // to the full content so there is no inner scrollbar.
+  function postBareunHeight() {
+    parent.postMessage({ bareunHeight: document.body.scrollHeight }, '*');
+  }
+  window.addEventListener('load', postBareunHeight);
+  window.addEventListener('resize', postBareunHeight);
+  if (window.ResizeObserver) new ResizeObserver(postBareunHeight).observe(document.body);
+</script>
+
 </body>
 </html>

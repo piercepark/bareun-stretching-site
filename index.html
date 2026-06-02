@@ -22,6 +22,11 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Noto+Serif+KR:wght@500;700;900&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 
+  <script>
+    // Detect iframe embedding (e.g. afteryogapilates.com / imweb) as early as
+    // possible so the CSS below can neutralize 100vh sections before first paint.
+    if (window.self !== window.top) document.documentElement.classList.add('is-embedded');
+  </script>
   <style>
     :root {
       --primary-dark: #1A1F2B;
@@ -1856,6 +1861,11 @@
         margin-bottom: 48px;
       }
     }
+    /* ====== EMBED MODE (inside an <iframe>, e.g. afteryogapilates.com) ====== */
+    /* Neutralize viewport-height sections so the embedded page reports a stable,
+       natural height to the parent — no inner scroll, no runaway growth. */
+    html.is-embedded .hero,
+    html.is-embedded .closing { min-height: 0; }
   </style>
 </head>
 <body>
@@ -2418,7 +2428,8 @@
   // (e.g. afteryogapilates.com / imweb). Lets the parent size the iframe
   // to the full content so there is no inner scrollbar.
   function postBareunHeight() {
-    parent.postMessage({ bareunHeight: document.body.scrollHeight }, '*');
+    var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+    parent.postMessage({ bareunHeight: h }, '*');
   }
   window.addEventListener('load', postBareunHeight);
   window.addEventListener('resize', postBareunHeight);

@@ -1206,9 +1206,9 @@
       .hero-visual img { animation: none; }
     }
 
-    /* ============== WHY (NARRATIVE + PERSONAS) ============== */
+    /* ============== WHY (TARGET SCENES) ============== */
     .why { background: var(--primary-light); }
-    .why-head { text-align: center; max-width: 880px; margin: 0 auto 96px; }
+    .why-head { text-align: center; max-width: 880px; margin: 0 auto 72px; }
     .why-title {
       font-family: var(--serif-kr);
       font-weight: 700;
@@ -1296,9 +1296,9 @@
 
     .care-scenes {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
-      margin: 96px auto 0;
+      margin: 0 auto;
     }
 
     .care-scene {
@@ -1309,11 +1309,19 @@
       min-width: 0;
     }
 
-    .care-scene img {
+    .care-scene img,
+    .care-scene__placeholder {
       width: 100%;
-      aspect-ratio: 1.18 / 1;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
       background: var(--sub-beige);
+    }
+
+    .care-scene__placeholder {
+      display: block;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.28), rgba(255,255,255,0) 42%),
+        var(--sub-beige);
     }
 
     .care-scene figcaption {
@@ -1347,7 +1355,7 @@
     @media (max-width: 560px) {
       .care-scenes {
         grid-template-columns: 1fr;
-        margin-top: 72px;
+        margin-top: 0;
       }
     }
 
@@ -1915,60 +1923,61 @@
   </div>
 </section>
 
-<!-- ============== Section 2 · WHY (Narrative + Personas + Promise) ============== -->
-<section class="why" id="why" aria-label="물리치료사가 케어하는 이유">
+<!-- ============== Section 2 · WHY (Target Scenes) ============== -->
+<section class="why" id="why" aria-label="대상별 패시브 스트레칭 케어">
   <div class="container">
     <header class="why-head reveal">
-      <p class="eyebrow">Why Passive Stretching</p>
-      <h2 class="why-title">아무리 폼롤러를 굴려도,<br class="br-d">스스로 스트레칭을 해도<br class="br-d">다음 날이면 왜 다시 몸이 무겁고 뭉칠까요?</h2>
-      <p class="why-sub">근육과 관절의 해부학적 구조를 가장 잘 아는 ‘물리치료사’가 직접 1:1로 케어합니다. 이제 완전히 힘을 뺀 채, 내 몸을 전문가에게 맡기세요.</p>
+      <p class="eyebrow">Who Needs Passive Stretching</p>
+      <h2 class="why-title">몸 상태와 목적에 맞춰<br class="br-d">전문가가 직접 열어주는<br class="br-d">1:1 패시브 스트레칭</h2>
+      <p class="why-sub">긴장 완화, 리커버리, 산전산후 케어, 시니어 관리, 유연성 개선, 성장기 자세 케어까지. 혼자 하기 어려운 움직임을 안전하게 리드합니다.</p>
     </header>
 
-    <div class="personas reveal">
-      <p class="personas-label">이런 분들께 강력히 추천합니다</p>
-      <ul class="personas-list">
-        <li><span class="num" aria-hidden="true">01</span><div class="persona-body"><h3 class="persona-title">거북목·라운드숄더</h3><p>하루 종일 모니터 앞에 앉아, 거북목·라운드숄더와 함께 어깨가 늘 뭉쳐 있는 직장인</p></div></li>
-        <li><span class="num" aria-hidden="true">02</span><div class="persona-body"><h3 class="persona-title">유연성 부족</h3><p>혼자서는 유연성이 부족해 요가·필라테스·헬스 동작이 잘 안 나오고 뻑뻑하신 분</p></div></li>
-        <li><span class="num" aria-hidden="true">03</span><div class="persona-body"><h3 class="persona-title">부상 위험</h3><p>고강도 웨이트 트레이닝 후 관절 가동 범위가 안 나와 부상이 걱정되는 운동 마니아</p></div></li>
-        <li><span class="num" aria-hidden="true">04</span><div class="persona-body"><h3 class="persona-title">만성 근육 긴장</h3><p>마사지를 받을 때만 잠깐 시원하고, 일상으로 돌아오면 금방 다시 몸이 무거워지는 분</p></div></li>
-        <li><span class="num" aria-hidden="true">05</span><div class="persona-body"><h3 class="persona-title">만성 피로</h3><p>자고 일어나도 몸이 천근만근, 만성 피로 속에서 깊은 휴식이 간절하신 분</p></div></li>
-      </ul>
-    </div>
-
-    <div class="why-promise reveal">
-      <p>누워만 계세요.<br><b>전문 의료 면허를 가진 전문가</b>가<br>운동 효과를 만들어드립니다.</p>
-    </div>
-
-    <div class="care-scenes reveal" aria-label="바른스트레칭 대표 케어 이미지">
+    <div class="care-scenes reveal" aria-label="바른스트레칭 추천 대상별 케어">
       <figure class="care-scene">
-        <img src="assets/programs/neck-shoulder.png" alt="목과 어깨 가동범위 케어를 받는 실제 세션 사진">
+        <div class="care-scene__placeholder" aria-hidden="true"></div>
         <figcaption>
-          <strong>목·어깨 ROM</strong>
-          <span>긴장 부위를 누르지 않고 관절 가동 범위를 회복합니다.</span>
+          <strong>만성 피로에 시달리는 현대인</strong>
+          <span>상체와 목, 어깨 주변의 극심한 긴장과 스트레스를 부드럽게 날려주는 정적인 이완 케어입니다.</span>
         </figcaption>
       </figure>
 
       <figure class="care-scene">
-        <img src="assets/programs/body-conditioning.png" alt="전신 정렬과 체형 밸런스 케어를 받는 실제 세션 사진">
+        <div class="care-scene__placeholder" aria-hidden="true"></div>
         <figcaption>
-          <strong>전신 컨디셔닝</strong>
-          <span>몸의 좌우 균형과 움직임 패턴을 함께 봅니다.</span>
+          <strong>스포츠 리커버리가 필요한 운동 매니아</strong>
+          <span>골프, 테니스, 웨이트 후 굳기 쉬운 고관절과 햄스트링을 강하고 정교하게 늘려드립니다.</span>
         </figcaption>
       </figure>
 
       <figure class="care-scene">
-        <img src="assets/programs/hip.png" alt="고관절과 골반 가동성 케어를 받는 실제 세션 사진">
+        <div class="care-scene__placeholder" aria-hidden="true"></div>
         <figcaption>
-          <strong>골반·고관절</strong>
-          <span>앉는 시간이 긴 몸의 하체 가동성을 안전하게 열어줍니다.</span>
+          <strong>안전한 관리가 필요한 임산부 및 산전산후 여성</strong>
+          <span>옆으로 누운 자세에서 배에 무리가 가지 않도록 골반과 허리 통증을 편안하게 케어합니다.</span>
         </figcaption>
       </figure>
 
       <figure class="care-scene">
-        <img src="assets/programs/growth.png" alt="성장기 자세와 움직임 케어를 떠올릴 수 있는 실제 스트레칭 사진">
+        <div class="care-scene__placeholder" aria-hidden="true"></div>
         <figcaption>
-          <strong>성장기 케어</strong>
-          <span>성장기 자세 습관과 유연성을 부드럽게 관리합니다.</span>
+          <strong>운동이 부담스러운 시니어 &amp; 노약자</strong>
+          <span>관절에 무리 없이 발목, 종아리, 무릎 주변을 부드럽게 가동해 혈액 순환을 돕습니다.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="care-scene">
+        <div class="care-scene__placeholder" aria-hidden="true"></div>
+        <figcaption>
+          <strong>유연성이 부족해 부상이 걱정되는 분</strong>
+          <span>혼자서는 열기 어려운 흉추와 어깨 관절의 가동 범위를 전문가의 리드로 시원하게 열어드립니다.</span>
+        </figcaption>
+      </figure>
+
+      <figure class="care-scene">
+        <div class="care-scene__placeholder" aria-hidden="true"></div>
+        <figcaption>
+          <strong>자세가 무너지고 운동을 싫어하는 성장기 주니어</strong>
+          <span>구부정한 척추를 바르게 펴고 다리 성장판을 부드럽게 자극하는 밝고 건강한 케어입니다.</span>
         </figcaption>
       </figure>
     </div>

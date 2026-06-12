@@ -1359,6 +1359,29 @@
       }
     }
 
+    /* ============== DIFFERENCE (애프터 스트레칭의 차별점) ============== */
+    .diff-head{ text-align:center; max-width:880px; margin:0 auto 96px; }
+    .diff-list{ display:flex; flex-direction:column; gap:112px; }
+    .diff-block{ display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+    .diff-block .diff-text{ order:0; }
+    .diff-block .diff-figure{ order:1; }
+    .diff-block.alt .diff-text{ order:1; }
+    .diff-block.alt .diff-figure{ order:0; }
+    .diff-figure{ margin:0; border-radius:8px; overflow:hidden; background:#FFFFFF; border:1px solid var(--border); aspect-ratio:4/3; }
+    .diff-figure__placeholder, .diff-figure img{ display:block; width:100%; height:100%; object-fit:cover; }
+    .diff-text .label{ font-family:var(--mono); font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-warm); margin-bottom:18px; }
+    .diff-text h3{ font-family:var(--serif-kr); font-weight:700; font-size:clamp(22px,2.6vw,32px); line-height:1.45; letter-spacing:-0.01em; color:var(--primary-dark); margin-bottom:20px; text-wrap:pretty; }
+    .diff-text p{ font-size:16px; line-height:1.9; color:var(--text-body); max-width:480px; }
+    .diff-text p + p{ margin-top:14px; }
+    @media (max-width:880px){
+      .diff-head{ margin-bottom:56px; }
+      .diff-list{ gap:56px; }
+      .diff-block, .diff-block.alt{ grid-template-columns:1fr; gap:24px; }
+      .diff-block .diff-text, .diff-block .diff-figure, .diff-block.alt .diff-text, .diff-block.alt .diff-figure{ order:0; }
+      .diff-figure{ aspect-ratio:16/9; }
+      .diff-text p{ max-width:none; }
+    }
+
     /* ============== VS (DIFFERENTIATION + TRUST) ============== */
     .vs { background: var(--primary-light); }
     .vs-head { text-align: center; max-width: 880px; margin: 0 auto 80px; }
@@ -1885,7 +1908,7 @@
       <small>BAREUN STRETCHING</small>
       <img class="logo-mark" src="assets/brand/bareun-logo.svg" alt="" aria-hidden="true">
     </div>
-    <a class="nav-cta" href="https://m.site.naver.com/27pvw" target="_blank" rel="noopener">첫 체험 예약</a>
+    <a class="nav-cta" href="https://booking.naver.com/booking/13/bizes/1346030/items/7727009" target="_blank" rel="noopener">첫 체험 예약</a>
   </div>
 </header>
 
@@ -1904,7 +1927,7 @@
         </div>
         <p class="hero-sub">미국과 일본에서 엘리트 운동선수와 부촌에서 시행되던 ‘패시브 스트레칭’이 드디어 한국에 상륙했습니다.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="https://m.site.naver.com/27pvw" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="https://booking.naver.com/booking/13/bizes/1346030/items/7727009" target="_blank" rel="noopener">
             첫 체험 예약하기
             <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -1980,6 +2003,49 @@
           <span>구부정한 척추를 바르게 펴고 다리 성장판을 부드럽게 자극하는 밝고 건강한 케어입니다.</span>
         </figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============== DIFFERENCE (애프터 스트레칭의 차별점) ============== -->
+<section class="diff" id="difference" aria-label="애프터 스트레칭의 차별점">
+  <div class="container">
+    <header class="diff-head reveal">
+      <p class="eyebrow">What Makes Us Different</p>
+      <h2 class="section-title">애프터 스트레칭은 이렇게 다릅니다!</h2>
+    </header>
+
+    <div class="diff-list">
+      <article class="diff-block reveal">
+        <!-- 추천 이미지 1: 해부학적 전문성이 느껴지는 정교한 케어 모습이나, 물리치료사의 신뢰감을 주는 프로필 스틸컷 -->
+        <figure class="diff-figure"><span class="diff-figure__placeholder" role="img" aria-label="물리치료사의 정교한 1:1 케어 이미지 준비 중"></span></figure>
+        <div class="diff-text">
+          <p class="label">01</p>
+          <h3>100% 병원 경력 물리치료사 직접 시술</h3>
+          <p>단기 교육만 이수한 일반인이 아닙니다. 애프터 스트레칭은 전원 병원 근무 경력을 가진 국가공인 물리치료사들로만 구성되어 있습니다. 비교할 수 없는 해부학적 전문성으로 가장 안전하고 정확하게 신체를 교정합니다.</p>
+        </div>
+      </article>
+
+      <article class="diff-block alt reveal">
+        <!-- 추천 이미지 2: 안락한 스트레칭 베드 옆에 세련된 필라테스 기구가 함께 배치되어, 회복과 운동이 자연스럽게 연계되는 프리미엄 스튜디오 전경 -->
+        <figure class="diff-figure"><span class="diff-figure__placeholder" role="img" aria-label="스트레칭 베드와 필라테스 기구가 함께 있는 스튜디오 이미지 준비 중"></span></figure>
+        <div class="diff-text">
+          <p class="label">02</p>
+          <h3>유지를 위한 맞춤 운동 연계, 추가 비용 0원</h3>
+          <p>스트레칭으로 관절을 열어준 후, 근육을 올바르게 잡아주는 운동이 병행되어야 그 회복 효과가 오래 지속됩니다.</p>
+          <p>물리치료사의 정밀 진단에 따라, 추가 금액 없이 1:1 맞춤형 필라테스 수업을 함께 받으실 수 있습니다. 오랜 요가와 필라테스 노하우를 가진 전문 강사진이 고객님의 상태에 가장 적합한 맞춤식 운동 서비스를 제공합니다.</p>
+        </div>
+      </article>
+
+      <article class="diff-block reveal">
+        <!-- 추천 이미지 3: 은은한 조명과 넓은 공간감이 돋보이는 프라이빗한 최고급 단독 스트레칭 룸 내부 사진 -->
+        <figure class="diff-figure"><span class="diff-figure__placeholder" role="img" aria-label="프라이빗 단독 스트레칭 룸 내부 이미지 준비 중"></span></figure>
+        <div class="diff-text">
+          <p class="label">03</p>
+          <h3>공장식 마사지룸이 아닌, 독보적인 프리미엄 환경</h3>
+          <p>여러 명이 동시에 커튼 하나로 구분되어 케어받는 흔한 마사지샵이나 샵인샵 형태가 아닙니다. 타인의 시선에서 벗어나 온전히 휴식에만 집중할 수 있도록, 넓고 안락하게 독립된 프라이빗 스트레칭 실에서 품격 있는 프리미엄 케어를 선사합니다.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -2370,7 +2436,7 @@
     <p class="eyebrow">Book Your First Visit</p>
     <h2>내 몸의 숨겨진<br>가동 범위를 찾을 시간.</h2>
     <p>물리치료사가 직접 찾아주는 내 몸의 진정한 가뿐함.<br class="br-d">지금 첫 방문 혜택으로 부담 없이 시작해 보세요.</p>
-    <a class="btn btn-primary" href="https://m.site.naver.com/27pvw" target="_blank" rel="noopener" aria-label="물리치료사 1:1 패시브 스트레칭 첫 방문 체험 신청하기">
+    <a class="btn btn-primary" href="https://booking.naver.com/booking/13/bizes/1346030/items/7727009" target="_blank" rel="noopener" aria-label="물리치료사 1:1 패시브 스트레칭 첫 방문 체험 신청하기">
       첫 방문 체험 신청하기
       <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
@@ -2399,7 +2465,7 @@
 
       <div class="footer-col">
         <h4>Booking</h4>
-        <a href="https://m.site.naver.com/27pvw" target="_blank" rel="noopener" aria-label="네이버 예약 페이지로 이동">네이버 예약</a>
+        <a href="https://booking.naver.com/booking/13/bizes/1346030/items/7727009" target="_blank" rel="noopener" aria-label="네이버 예약 페이지로 이동">네이버 예약</a>
         <a href="http://pf.kakao.com/_xgFjkn" target="_blank" rel="noopener" aria-label="카카오톡 채널로 이동">카카오톡 채널</a>
         <a href="tel:010-3454-2297" aria-label="전화 문의">010-3454-2297</a>
       </div>

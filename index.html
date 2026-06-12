@@ -1382,6 +1382,64 @@
       .diff-text p{ max-width:none; }
     }
 
+    /* ============== CLINICAL RECORDS (임상 기록 대시보드) ============== */
+    .clinical{ background:#0F1729; }
+    .clin-head{ text-align:center; max-width:760px; margin:0 auto 72px; }
+    .clin-head .eyebrow{ color:#D4AF37; }
+    .clin-title{ font-family:var(--serif-kr); font-weight:700; font-size:clamp(28px,4vw,46px); line-height:1.45; letter-spacing:-0.01em; color:#F6F4EF; text-wrap:pretty; }
+    .clin-title b{ color:#D4AF37; font-weight:700; }
+    .clin-sub{ margin-top:24px; font-size:16px; font-weight:300; line-height:1.85; color:#9AA7BC; }
+
+    .clin-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+
+    .clin-card{
+      display:flex; flex-direction:column;
+      background:linear-gradient(180deg,#16203A 0%,#111A2E 100%);
+      border:1px solid rgba(255,255,255,0.07);
+      border-radius:16px;
+      padding:36px 34px;
+      box-shadow:0 20px 44px -20px rgba(0,0,0,0.65);
+      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .clin-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(212,175,55,0.42);
+      box-shadow:0 32px 60px -22px rgba(0,0,0,0.78);
+    }
+
+    .clin-card__case{ font-family:var(--mono); font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:#D4AF37; }
+    .clin-card__persona{ margin-top:11px; font-family:var(--serif-kr); font-weight:700; font-size:21px; line-height:1.4; letter-spacing:-0.01em; color:#F6F4EF; }
+    .clin-divider{ height:1px; background:rgba(255,255,255,0.09); margin:24px 0; }
+
+    .clin-rows{ list-style:none; margin:0; padding:0; }
+    .clin-row{ display:flex; gap:16px; align-items:flex-start; }
+    .clin-row + .clin-row{ margin-top:20px; }
+    .clin-ico{ flex:0 0 auto; width:38px; height:38px; display:grid; place-items:center; border-radius:11px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); }
+    .clin-ico svg{ width:19px; height:19px; }
+    .clin-ico--problem{ color:#AEB9CC; }
+    .clin-ico--care{ color:#DCE2EC; }
+    .clin-label{ display:block; font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#7C8AA0; margin-bottom:6px; }
+    .clin-row p{ font-size:14.5px; line-height:1.8; color:#B6C0CF; word-break:keep-all; }
+
+    .clin-result{
+      margin-top:26px; display:flex; gap:16px; align-items:flex-start;
+      background:rgba(212,175,55,0.08);
+      border:1px solid rgba(212,175,55,0.26);
+      border-radius:14px; padding:22px;
+    }
+    .clin-result .clin-ico{ background:rgba(212,175,55,0.14); border-color:rgba(212,175,55,0.3); color:#D4AF37; }
+    .clin-label--result{ color:#D4AF37; }
+    .clin-outcomes{ list-style:none; margin:0; padding:0; }
+    .clin-outcomes li{ position:relative; padding-left:20px; font-size:15px; line-height:1.7; font-weight:500; color:#EBD89B; word-break:keep-all; }
+    .clin-outcomes li + li{ margin-top:8px; }
+    .clin-outcomes li::before{ content:""; position:absolute; left:2px; top:9px; width:7px; height:7px; border-radius:50%; background:#D4AF37; }
+
+    @media (max-width:880px){
+      .clin-head{ margin-bottom:48px; }
+      .clin-grid{ grid-template-columns:1fr; gap:18px; }
+      .clin-card{ padding:28px 24px; border-radius:14px; }
+    }
+
     /* ============== VS (DIFFERENTIATION + TRUST) ============== */
     .vs { background: var(--primary-light); }
     .vs-head { text-align: center; max-width: 880px; margin: 0 auto 80px; }
@@ -2044,6 +2102,123 @@
           <p class="label">03</p>
           <h3>공장식 마사지룸이 아닌, 독보적인 프리미엄 환경</h3>
           <p>여러 명이 동시에 커튼 하나로 구분되어 케어받는 흔한 마사지샵이나 샵인샵 형태가 아닙니다. 타인의 시선에서 벗어나 온전히 휴식에만 집중할 수 있도록, 넓고 안락하게 독립된 프라이빗 스트레칭 실에서 품격 있는 프리미엄 케어를 선사합니다.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CLINICAL RECORDS (임상 기록 대시보드) ============== -->
+<section class="clinical" id="clinical" aria-label="임상 기록 대시보드">
+  <div class="container">
+    <header class="clin-head reveal">
+      <p class="eyebrow">Clinical Records</p>
+      <h2 class="clin-title">임상 기록으로 증명하는 <b>진짜 회복</b></h2>
+      <p class="clin-sub">보건복지부 면허 물리치료사가 직접 기록한 애프터스트레칭 케어 일지</p>
+    </header>
+
+    <div class="clin-grid">
+      <article class="clin-card reveal">
+        <span class="clin-card__case">Case 01</span>
+        <h3 class="clin-card__persona">만성피로 중년 남성</h3>
+        <div class="clin-divider"></div>
+        <ul class="clin-rows">
+          <li class="clin-row">
+            <span class="clin-ico clin-ico--problem" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+            <div><span class="clin-label">고민</span><p>잦은 음주와 업무 스트레스로 인한 만성 피로, 무겁고 뻣뻣한 전신 통증</p></div>
+          </li>
+          <li class="clin-row">
+            <span class="clin-ico clin-ico--care" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span>
+            <div><span class="clin-label">케어</span><p>척추 라인 및 전신 대근육 중심의 정밀 패시브 스트레칭 50분</p></div>
+          </li>
+        </ul>
+        <div class="clin-result">
+          <span class="clin-ico clin-ico--result" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></span>
+          <div>
+            <span class="clin-label clin-label--result">결과</span>
+            <ul class="clin-outcomes">
+              <li>만성 피로도 감소</li>
+              <li>전신 가벼움 및 아침 활력 회복</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="clin-card reveal">
+        <span class="clin-card__case">Case 02</span>
+        <h3 class="clin-card__persona">거북목 직장인</h3>
+        <div class="clin-divider"></div>
+        <ul class="clin-rows">
+          <li class="clin-row">
+            <span class="clin-ico clin-ico--problem" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+            <div><span class="clin-label">고민</span><p>장시간 모니터 시청으로 인한 심한 거북목, 만성 어깨 결림과 두통</p></div>
+          </li>
+          <li class="clin-row">
+            <span class="clin-ico clin-ico--care" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span>
+            <div><span class="clin-label">케어</span><p>경추·흉추 주변 속근육(사각근, 판상근, 후두하근) 집중 이완 50분</p></div>
+          </li>
+        </ul>
+        <div class="clin-result">
+          <span class="clin-ico clin-ico--result" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></span>
+          <div>
+            <span class="clin-label clin-label--result">결과</span>
+            <ul class="clin-outcomes">
+              <li>목 가동 범위 20% 증가</li>
+              <li>어깨 무거움 및 야간 두통 소실</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="clin-card reveal">
+        <span class="clin-card__case">Case 03</span>
+        <h3 class="clin-card__persona">운동이 힘든 노인</h3>
+        <div class="clin-divider"></div>
+        <ul class="clin-rows">
+          <li class="clin-row">
+            <span class="clin-ico clin-ico--problem" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+            <div><span class="clin-label">고민</span><p>관절 통증으로 스스로 운동 불가능, 전신 근육 경직 및 혈액순환 저하</p></div>
+          </li>
+          <li class="clin-row">
+            <span class="clin-ico clin-ico--care" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span>
+            <div><span class="clin-label">케어</span><p>관절 압박이 없는 안전하고 부드러운 수동적 관절 가동(ROM) 케어 50분</p></div>
+          </li>
+        </ul>
+        <div class="clin-result">
+          <span class="clin-ico clin-ico--result" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></span>
+          <div>
+            <span class="clin-label clin-label--result">결과</span>
+            <ul class="clin-outcomes">
+              <li>하체 혈액순환 촉진</li>
+              <li>관절 무리 없이 누워서 얻는 운동 이상의 이완 효과</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="clin-card reveal">
+        <span class="clin-card__case">Case 04</span>
+        <h3 class="clin-card__persona">산후 육아맘</h3>
+        <div class="clin-divider"></div>
+        <ul class="clin-rows">
+          <li class="clin-row">
+            <span class="clin-ico clin-ico--problem" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></span>
+            <div><span class="clin-label">고민</span><p>출산 후 골반 불균형, 반복되는 육아로 무너진 체형 및 하체 부종</p></div>
+          </li>
+          <li class="clin-row">
+            <span class="clin-ico clin-ico--care" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span>
+            <div><span class="clin-label">케어</span><p>프라이빗 단독 룸, 복부에 자극이 없는 측와위(옆으로 누운 자세) 안전 정렬</p></div>
+          </li>
+        </ul>
+        <div class="clin-result">
+          <span class="clin-ico clin-ico--result" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></span>
+          <div>
+            <span class="clin-label clin-label--result">결과</span>
+            <ul class="clin-outcomes">
+              <li>골반 및 허리 통증 경감</li>
+              <li>림프 순환 촉진으로 하체 부종 급감</li>
+            </ul>
+          </div>
         </div>
       </article>
     </div>

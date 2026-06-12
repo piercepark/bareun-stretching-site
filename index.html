@@ -476,82 +476,42 @@
       color: var(--primary-dark);
     }
 
-    .principles-list {
-      display: flex;
-      flex-direction: column;
-      gap: 120px;
+    .pent-sub {
+      max-width: 640px;
+      margin: 22px auto 0;
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-muted);
     }
 
-    @media (max-width: 768px) {
-      .principles-list { gap: 80px; }
-    }
-
-    .principle {
+    .pent-wrap {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 64px;
       align-items: center;
     }
 
     @media (max-width: 1024px) {
-      .principle { grid-template-columns: 1fr; gap: 24px; }
+      .pent-wrap { grid-template-columns: 1fr; gap: 48px; }
     }
 
-    .principle .num-side {
-      font-family: var(--serif-en);
-      font-weight: 400;
-      font-size: clamp(120px, 18vw, 220px);
-      line-height: 1;
-      color: var(--accent-warm);
-      opacity: 0.6;
-      letter-spacing: -0.04em;
-      text-align: right;
-    }
+    .pent-chart { width: 100%; max-width: 520px; margin: 0 auto; }
+    .pent-svg { width: 100%; height: auto; display: block; overflow: visible; }
+    .pent-grid-line { fill: none; stroke: rgba(26,31,43,0.13); stroke-width: 1; }
+    .pent-spoke { stroke: rgba(26,31,43,0.10); stroke-width: 1; }
+    .pent-area { fill: rgba(201,168,118,0.26); stroke: var(--accent-warm); stroke-width: 2; stroke-linejoin: round; }
+    .pent-badge { fill: var(--primary-dark); stroke: var(--accent-warm); stroke-width: 1.5; }
+    .pent-badge-num { fill: #F7F3EC; font-family: var(--mono); font-size: 13px; font-weight: 500; text-anchor: middle; dominant-baseline: central; letter-spacing: 0.03em; }
+    .pent-axis-label { fill: var(--primary-dark); font-family: var(--serif-kr); font-weight: 700; font-size: 15px; }
+    .pent-center-label { fill: rgba(26,31,43,0.45); font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-anchor: middle; text-transform: uppercase; }
 
-    .principle .text-side {
-      order: 0;
-    }
-
-    .principle .num-side {
-      order: 1;
-    }
-
-    .principle.alt .text-side {
-      order: 1;
-    }
-
-    .principle.alt .num-side {
-      order: 0;
-      text-align: left;
-    }
-
-    @media (max-width: 1024px) {
-      .principle .num-side,
-      .principle.alt .num-side { order: 0; text-align: left; }
-      .principle .text-side,
-      .principle.alt .text-side { order: 1; }
-    }
-
-    .principle h3 {
-      font-family: var(--serif-kr);
-      font-weight: 700;
-      font-size: clamp(26px, 3.2vw, 40px);
-      line-height: 1.3;
-      letter-spacing: -0.015em;
-      color: var(--primary-dark);
-      margin-bottom: 24px;
-    }
-
-    .principle p {
-      font-size: 16px;
-      line-height: 1.85;
-      color: var(--text-body);
-    }
-
-    .principle p + p {
-      margin-top: 14px;
-      color: var(--text-muted);
-    }
+    .pent-legend { list-style: none; margin: 0; padding: 0; }
+    .pent-item { display: flex; gap: 20px; align-items: flex-start; padding: 22px 0; border-top: 1px solid var(--border); }
+    .pent-item:first-child { border-top: none; padding-top: 0; }
+    .pent-item:last-child { padding-bottom: 0; }
+    .pent-num { flex: 0 0 auto; width: 48px; font-family: var(--serif-en); font-weight: 400; font-size: 34px; line-height: 1; color: var(--accent-warm); letter-spacing: -0.02em; }
+    .pent-item h3 { font-family: var(--serif-kr); font-weight: 700; font-size: 19px; line-height: 1.35; letter-spacing: -0.01em; color: var(--primary-dark); margin-bottom: 8px; }
+    .pent-item p { font-size: 15px; line-height: 1.8; color: var(--text-muted); word-break: keep-all; }
 
     /* ============== CLOSING ============== */
     .closing {
@@ -1849,27 +1809,21 @@
         line-height: 1.25;
       }
 
-      .principles-list {
-        gap: 56px;
+      .pent-wrap {
+        gap: 36px;
       }
 
-      .principle {
-        gap: 16px;
+      .pent-num {
+        font-size: 30px;
+        width: 42px;
       }
 
-      .principle .num-side,
-      .principle.alt .num-side {
-        font-size: 88px;
-        text-align: left;
+      .pent-item h3 {
+        font-size: 18px;
       }
 
-      .principle h3 {
-        font-size: 22px;
-        margin-bottom: 16px;
-      }
-
-      .principle p {
-        font-size: 15px;
+      .pent-item p {
+        font-size: 14.5px;
         line-height: 1.75;
       }
 
@@ -2231,53 +2185,73 @@
     <div class="principles-header reveal">
       <p class="eyebrow">Five Principles</p>
       <h2>다섯 가지 원리</h2>
+      <p class="pent-sub">다섯 원리가 균형 있게 맞물릴 때, 비로소 하나의 온전한 회복이 완성됩니다.</p>
     </div>
 
-    <div class="principles-list">
-      <article class="principle">
-        <div class="text-side reveal">
-          <h3>유연성·가동범위 개선</h3>
-          <p>근육과 관절을 오로지 물리치료사의 외력만으로 안전하게 확장해드립니다.</p>
-          <p>내 힘 하나 들이지 않고 유연한 몸을 만들어보세요.</p>
-        </div>
-        <div class="num-side reveal" aria-hidden="true">01</div>
-      </article>
+    <div class="pent-wrap">
+      <div class="pent-chart reveal">
+        <svg class="pent-svg" viewBox="0 0 600 540" role="img" aria-label="다섯 가지 원리가 균형을 이루는 오각형 그래프">
+          <polygon class="pent-grid-line" points="300,137.5 406.994,215.235 366.126,341.015 233.874,341.015 193.006,215.235"/>
+          <polygon class="pent-grid-line" points="300,175 371.33,226.823 344.084,310.677 255.916,310.677 228.67,226.823"/>
+          <polygon class="pent-grid-line" points="300,212.5 335.665,238.412 322.042,280.338 277.958,280.338 264.335,238.412"/>
+          <line class="pent-spoke" x1="300" y1="250" x2="300" y2="100"/>
+          <line class="pent-spoke" x1="300" y1="250" x2="442.659" y2="203.647"/>
+          <line class="pent-spoke" x1="300" y1="250" x2="388.168" y2="371.353"/>
+          <line class="pent-spoke" x1="300" y1="250" x2="211.832" y2="371.353"/>
+          <line class="pent-spoke" x1="300" y1="250" x2="157.341" y2="203.647"/>
+          <polygon class="pent-area" points="300,100 442.659,203.647 388.168,371.353 211.832,371.353 157.341,203.647"/>
+          <text class="pent-center-label" x="300" y="244">Passive</text>
+          <text class="pent-center-label" x="300" y="258">Stretching</text>
+          <text class="pent-axis-label" x="300" y="80" text-anchor="middle">유연성·가동범위 개선</text>
+          <text class="pent-axis-label" x="464" y="200" text-anchor="start" dominant-baseline="middle">자율신경계 안정</text>
+          <text class="pent-axis-label" x="398" y="394" text-anchor="start" dominant-baseline="middle">체형 개선</text>
+          <text class="pent-axis-label" x="202" y="394" text-anchor="end" dominant-baseline="middle">순환·회복</text>
+          <text class="pent-axis-label" x="136" y="200" text-anchor="end" dominant-baseline="middle">근기능 최적화</text>
+          <g><circle class="pent-badge" cx="300" cy="100" r="16"/><text class="pent-badge-num" x="300" y="100">01</text></g>
+          <g><circle class="pent-badge" cx="442.659" cy="203.647" r="16"/><text class="pent-badge-num" x="442.659" y="203.647">02</text></g>
+          <g><circle class="pent-badge" cx="388.168" cy="371.353" r="16"/><text class="pent-badge-num" x="388.168" y="371.353">03</text></g>
+          <g><circle class="pent-badge" cx="211.832" cy="371.353" r="16"/><text class="pent-badge-num" x="211.832" y="371.353">04</text></g>
+          <g><circle class="pent-badge" cx="157.341" cy="203.647" r="16"/><text class="pent-badge-num" x="157.341" y="203.647">05</text></g>
+        </svg>
+      </div>
 
-      <article class="principle alt">
-        <div class="num-side reveal" aria-hidden="true">02</div>
-        <div class="text-side reveal">
-          <h3>자율신경계 안정</h3>
-          <p>과도하게 활성화된 긴장 스위치를 끄고 자율신경계의 균형을 되찾아드립니다.</p>
-          <p>수면과 운동의 중간 지점에 있는 진정한 회복을 물리치료사의 손으로 만들어드립니다.</p>
-        </div>
-      </article>
-
-      <article class="principle">
-        <div class="text-side reveal">
-          <h3>체형 개선</h3>
-          <p>관절과 근육 상태를 최적화하여 무너진 체형을 개선해드립니다.</p>
-          <p>인위적 노력 없이도 몸이 스스로 바른 자세를 유지하는 자연스러운 균형감을 경험해보세요.</p>
-        </div>
-        <div class="num-side reveal" aria-hidden="true">03</div>
-      </article>
-
-      <article class="principle alt">
-        <div class="num-side reveal" aria-hidden="true">04</div>
-        <div class="text-side reveal">
-          <h3>순환·회복</h3>
-          <p>근막 유착을 해소하고 혈류를 개선하여 운동 후 쌓인 노폐물을 빠르게 배출해드립니다.</p>
-          <p>직접 움직이지 않고도 저강도 유산소 이상의 가뿐한 리커버리 효과를 선사합니다.</p>
-        </div>
-      </article>
-
-      <article class="principle">
-        <div class="text-side reveal">
-          <h3>근기능 최적화</h3>
-          <p>긴장된 근육을 풀어 운동 시 타겟 부위에 정확한 자극이 전달되도록 돕습니다.</p>
-          <p>수축·이완 효율을 높여 평소 운동 효과를 극대화하는 최적의 신체 상태를 만듭니다.</p>
-        </div>
-        <div class="num-side reveal" aria-hidden="true">05</div>
-      </article>
+      <ol class="pent-legend">
+        <li class="pent-item reveal">
+          <span class="pent-num">01</span>
+          <div>
+            <h3>유연성·가동범위 개선</h3>
+            <p>물리치료사의 외력만으로 근육과 관절을 안전하게 확장해, 내 힘 하나 들이지 않고 유연한 몸을 만듭니다.</p>
+          </div>
+        </li>
+        <li class="pent-item reveal">
+          <span class="pent-num">02</span>
+          <div>
+            <h3>자율신경계 안정</h3>
+            <p>과활성된 긴장 스위치를 끄고 자율신경계의 균형을 되찾아, 수면과 운동 사이의 진정한 회복을 만듭니다.</p>
+          </div>
+        </li>
+        <li class="pent-item reveal">
+          <span class="pent-num">03</span>
+          <div>
+            <h3>체형 개선</h3>
+            <p>관절과 근육 상태를 최적화해 무너진 체형을 바로잡고, 몸이 스스로 바른 자세를 유지하게 합니다.</p>
+          </div>
+        </li>
+        <li class="pent-item reveal">
+          <span class="pent-num">04</span>
+          <div>
+            <h3>순환·회복</h3>
+            <p>근막 유착을 풀고 혈류를 개선해 노폐물 배출을 도와, 저강도 유산소 이상의 가뿐한 리커버리를 선사합니다.</p>
+          </div>
+        </li>
+        <li class="pent-item reveal">
+          <span class="pent-num">05</span>
+          <div>
+            <h3>근기능 최적화</h3>
+            <p>긴장된 근육을 풀어 타겟 부위에 정확한 자극이 전달되게 하고, 수축·이완 효율을 높여 운동 효과를 극대화합니다.</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </div>
 </section>

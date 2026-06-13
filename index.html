@@ -1329,7 +1329,7 @@
     .diff-block.alt .diff-figure{ order:0; }
     .diff-figure{ margin:0; border-radius:8px; overflow:hidden; background:#FFFFFF; border:1px solid var(--border); aspect-ratio:4/3; }
     .diff-figure__placeholder, .diff-figure img, .diff-figure__svg{ display:block; width:100%; height:100%; object-fit:cover; }
-    .diff-figure--cert{ background:#FBF9F5; }
+    .diff-figure--cert{ background:#E7DECF; }
     .diff-text .label{ font-family:var(--mono); font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-warm); margin-bottom:18px; }
     .diff-text h3{ font-family:var(--serif-kr); font-weight:700; font-size:clamp(22px,2.6vw,32px); line-height:1.45; letter-spacing:-0.01em; color:var(--primary-dark); margin-bottom:20px; text-wrap:pretty; }
     .diff-text p{ font-size:16px; line-height:1.9; color:var(--text-body); max-width:480px; }
@@ -2031,23 +2031,75 @@
     <div class="diff-list">
       <article class="diff-block reveal">
         <!-- 추천 이미지 1: 해부학적 전문성이 느껴지는 정교한 케어 모습이나, 물리치료사의 신뢰감을 주는 프로필 스틸컷 -->
-        <figure class="diff-figure diff-figure--cert"><svg class="diff-figure__svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="국가공인 물리치료사 면허를 상징하는 인증 일러스트">
-          <rect width="400" height="300" fill="#FBF9F5"/>
-          <rect x="14" y="14" width="372" height="272" fill="none" stroke="#1A1F2B" stroke-width="1.4"/>
-          <rect x="20" y="20" width="360" height="260" fill="none" stroke="#C9A876" stroke-width="0.9"/>
-          <text x="200" y="56" text-anchor="middle" font-family="'DM Mono','Inter',monospace" font-size="10" letter-spacing="5" fill="#C9A876">CERTIFICATE OF LICENSE</text>
-          <line x1="158" y1="66" x2="242" y2="66" stroke="#C9A876" stroke-width="0.8"/>
-          <text x="200" y="96" text-anchor="middle" font-family="'Noto Serif KR',serif" font-weight="700" font-size="23" fill="#1A1F2B">물리치료사 면허</text>
-          <text x="200" y="115" text-anchor="middle" font-family="'DM Mono','Inter',monospace" font-size="8.5" letter-spacing="2.5" fill="#6B6B6B">LICENSED PHYSICAL THERAPIST</text>
-          <g transform="translate(200,170)">
-            <circle r="36" fill="#FFFFFF" stroke="#C9A876" stroke-width="1.4"/>
-            <circle r="29.5" fill="none" stroke="#C9A876" stroke-width="0.7"/>
-            <polygon points="-6.5,-16 6.5,-16 6.5,-6.5 16,-6.5 16,6.5 6.5,6.5 6.5,16 -6.5,16 -6.5,6.5 -16,6.5 -16,-6.5 -6.5,-6.5" fill="#1A1F2B"/>
-            <path d="M-13,30 L-21,52 L-9,46 L-5,34 Z" fill="#C9A876"/>
-            <path d="M13,30 L21,52 L9,46 L5,34 Z" fill="#C9A876"/>
+        <figure class="diff-figure diff-figure--cert"><svg class="diff-figure__svg" viewBox="0 0 1000 750" preserveAspectRatio="xMidYMid meet" role="img" aria-label="애프터스트레칭 — 전원 보건복지부 면허 물리치료사 자격 인증">
+          <defs>
+            <style>
+              .diff-figure--cert .c-eyebrow { font-family:'DM Mono','Inter',monospace; font-size:13px; letter-spacing:6px; fill:#B08D5B; }
+              .diff-figure--cert .c-wordmark{ font-family:'Noto Serif KR',serif; font-weight:700; font-size:18px; letter-spacing:8px; fill:#1A1F2B; }
+              .diff-figure--cert .c-submono { font-family:'DM Mono','Inter',monospace; font-size:10px; letter-spacing:4px; fill:#9A8C76; }
+              .diff-figure--cert .c-headline{ font-family:'Noto Serif KR',serif; font-weight:900; font-size:44px; letter-spacing:3px; fill:#1A1F2B; }
+              .diff-figure--cert .c-statement{ font-family:'Noto Serif KR',serif; font-weight:500; font-size:15.5px; letter-spacing:.4px; fill:#2B2B2B; }
+              .diff-figure--cert .c-clause  { font-family:'Noto Serif KR',serif; font-weight:500; font-size:13px; letter-spacing:.4px; fill:#6B6B6B; }
+              .diff-figure--cert .c-name    { font-family:'Noto Serif KR',serif; font-weight:700; font-size:27px; letter-spacing:8px; fill:#1A1F2B; }
+              .diff-figure--cert .c-role    { font-family:'DM Mono','Inter',monospace; font-size:12px; letter-spacing:3px; fill:#B08D5B; }
+              .diff-figure--cert .c-rolesub { font-family:'Noto Serif KR',serif; font-weight:500; font-size:11px; letter-spacing:1px; fill:#6B6B6B; }
+              .diff-figure--cert .c-footer  { font-family:'DM Mono','Inter',monospace; font-size:10px; letter-spacing:1.5px; fill:#8A7E6E; }
+              .diff-figure--cert .c-sealtxt { font-family:'DM Mono','Inter',monospace; font-size:9.5px; letter-spacing:1px; fill:#B08D5B; }
+              .diff-figure--cert .c-sealc   { font-family:'DM Mono','Inter',monospace; font-size:8px; letter-spacing:2px; fill:#B08D5B; }
+            </style>
+            <filter id="cert-soft" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="16" flood-color="#5A4A30" flood-opacity="0.16"/></filter>
+            <linearGradient id="cert-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E2CFA4"/><stop offset="0.5" stop-color="#C9A876"/><stop offset="1" stop-color="#A8835A"/></linearGradient>
+            <radialGradient id="cert-sealfill" cx="0.5" cy="0.42" r="0.7"><stop offset="0" stop-color="#FBF7EE"/><stop offset="1" stop-color="#EEE3CE"/></radialGradient>
+            <g id="cert-sprout">
+              <path d="M 0,0 C -4,-10 -4,-21 0,-30 C 4,-21 4,-10 0,0 Z" fill="#C9A876"/>
+              <path d="M 0,0 C -4,-10 -4,-21 0,-30 C 4,-21 4,-10 0,0 Z" fill="#C9A876" transform="rotate(-33)"/>
+              <path d="M 0,0 C -4,-10 -4,-21 0,-30 C 4,-21 4,-10 0,0 Z" fill="#C9A876" transform="rotate(33)"/>
+              <circle cx="0" cy="-3" r="2.2" fill="#A8835A"/>
+            </g>
+            <g id="cert-diamond"><rect x="-7" y="-7" width="14" height="14" transform="rotate(45)" fill="url(#cert-gold)"/></g>
+            <path id="cert-sealArc" d="M 454,572 A 46,46 0 0 1 546,572" fill="none"/>
+          </defs>
+          <rect x="0" y="0" width="1000" height="750" fill="#E7DECF"/>
+          <rect x="26" y="26" width="948" height="698" rx="3" fill="#FAF8F4" filter="url(#cert-soft)"/>
+          <rect x="52" y="52" width="896" height="646" fill="none" stroke="#C9A876" stroke-width="2.5"/>
+          <rect x="63" y="63" width="874" height="624" fill="none" stroke="#C9A876" stroke-width="0.8"/>
+          <use href="#cert-diamond" x="52" y="52"/><use href="#cert-diamond" x="948" y="52"/><use href="#cert-diamond" x="52" y="698"/><use href="#cert-diamond" x="948" y="698"/>
+          <g transform="scale(0.7)"><use href="#cert-diamond" x="714" y="74"/><use href="#cert-diamond" x="714" y="997"/></g>
+          <g transform="translate(0,4)">
+            <use href="#cert-sprout" transform="translate(500,116) scale(0.9)"/>
+            <text class="c-wordmark" x="500" y="146" text-anchor="middle">애프터스트레칭</text>
+            <text class="c-submono" x="500" y="164" text-anchor="middle">SEOULSUP STUDIO · PHYSICAL THERAPY</text>
+            <line x1="430" y1="183" x2="488" y2="183" stroke="#C9A876" stroke-width="0.8"/>
+            <g transform="translate(500,183)"><rect x="-4" y="-4" width="8" height="8" transform="rotate(45)" fill="#C9A876"/></g>
+            <line x1="512" y1="183" x2="570" y2="183" stroke="#C9A876" stroke-width="0.8"/>
+            <text class="c-eyebrow" x="500" y="210" text-anchor="middle">QUALIFICATION ASSURANCE</text>
+            <text class="c-headline" x="500" y="256" text-anchor="middle">물리치료사 자격 인증</text>
+            <line x1="380" y1="284" x2="488" y2="284" stroke="#C9A876" stroke-width="0.8"/>
+            <g transform="translate(500,284)"><rect x="-5" y="-5" width="10" height="10" transform="rotate(45)" fill="url(#cert-gold)"/></g>
+            <line x1="512" y1="284" x2="620" y2="284" stroke="#C9A876" stroke-width="0.8"/>
+            <text class="c-statement" x="500" y="324" text-anchor="middle">본 센터의 모든 1:1 맞춤 세션은 아래 두 전문가가 직접 진행합니다.</text>
+            <text class="c-statement" x="500" y="348" text-anchor="middle">두 분 모두 보건복지부에서 발급한 물리치료사 면허를 소지하고 있습니다.</text>
+            <line x1="500" y1="382" x2="500" y2="450" stroke="#C9A876" stroke-width="0.7"/>
+            <text class="c-name" x="352" y="412" text-anchor="middle">오승은</text>
+            <line x1="290" y1="428" x2="414" y2="428" stroke="#C9A876" stroke-width="0.8"/>
+            <text class="c-role" x="352" y="447" text-anchor="middle">PHYSICAL THERAPIST</text>
+            <text class="c-rolesub" x="352" y="464" text-anchor="middle">물리치료사 · 보건복지부 면허 소지</text>
+            <text class="c-name" x="648" y="412" text-anchor="middle">김수현</text>
+            <line x1="586" y1="428" x2="710" y2="428" stroke="#C9A876" stroke-width="0.8"/>
+            <text class="c-role" x="648" y="447" text-anchor="middle">PHYSICAL THERAPIST</text>
+            <text class="c-rolesub" x="648" y="464" text-anchor="middle">물리치료사 · 보건복지부 면허 소지</text>
+            <text class="c-clause" x="500" y="502" text-anchor="middle">이에 애프터스트레칭이 위 사실을 확인하여 본 인증서를 발급합니다.</text>
+            <g>
+              <circle cx="500" cy="572" r="57" fill="url(#cert-sealfill)" stroke="url(#cert-gold)" stroke-width="2.2"/>
+              <circle cx="500" cy="572" r="43" fill="none" stroke="#C9A876" stroke-width="0.7"/>
+              <text class="c-sealtxt"><textPath href="#cert-sealArc" startOffset="50%" text-anchor="middle">애프터스트레칭 서울숲점</textPath></text>
+              <g transform="translate(500,622)"><rect x="-3.2" y="-3.2" width="6.4" height="6.4" transform="rotate(45)" fill="#C9A876"/></g>
+              <use href="#cert-sprout" transform="translate(500,561) scale(0.42)"/>
+              <text class="c-sealc" x="500" y="580" text-anchor="middle">VERIFIED</text>
+              <text class="c-sealc" x="500" y="592" text-anchor="middle" style="font-size:7px">EST · 2026</text>
+            </g>
+            <text class="c-footer" x="500" y="648" text-anchor="middle">애프터스트레칭 · 서울숲역 2번 출구 · 사업자등록번호 582-05-03329 · REF. AS-PT-2026</text>
           </g>
-          <text x="200" y="246" text-anchor="middle" font-family="'Noto Serif KR',serif" font-size="11.5" fill="#1A1F2B">국가공인 보건의료인 · 병원 임상 경력</text>
-          <text x="200" y="262" text-anchor="middle" font-family="'DM Mono','Inter',monospace" font-size="8" letter-spacing="3" fill="#A99B82">AFTER STRETCHING</text>
         </svg></figure>
         <div class="diff-text">
           <p class="label">01</p>

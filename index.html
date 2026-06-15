@@ -306,11 +306,16 @@
       background: var(--sub-beige);
     }
 
-    .hero-visual img {
+    .hero-visual img,
+    .hero-visual video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
+      display: block;
+    }
+
+    .hero-visual img {
       animation: kenburns 22s ease-in-out infinite alternate;
     }
 
@@ -1954,8 +1959,13 @@
       </div>
 
       <div class="hero-visual reveal" aria-hidden="true">
-        <img src="assets/hero/hero-session.png"
-             alt="물리치료사 강사진과 1:1 패시브 스트레칭 케어를 표현한 애프터스트레칭 이미지">
+        <video autoplay muted loop playsinline preload="auto"
+               poster="assets/hero/hero-session.png"
+               aria-label="물리치료사 강사진과 1:1 패시브 스트레칭 케어를 표현한 애프터스트레칭 영상">
+          <source src="assets/hero/hero-session.mp4" type="video/mp4">
+          <img src="assets/hero/hero-session.png"
+               alt="물리치료사 강사진과 1:1 패시브 스트레칭 케어를 표현한 애프터스트레칭 이미지">
+        </video>
       </div>
     </div>
   </div>

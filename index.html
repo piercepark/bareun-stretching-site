@@ -1918,6 +1918,47 @@
     /* ====== EMBED MODE (inside an <iframe>, e.g. afteryogapilates.com) ====== */
     /* Neutralize viewport-height sections so the embedded page reports a stable,
        natural height to the parent — no inner scroll, no runaway growth. */
+
+    /* ============== FIRST VISIT (첫 방문 혜택) ============== */
+.fv{padding:120px 0;background:var(--primary-light);}
+.fv-head{max-width:680px;margin:0 auto 52px;text-align:center;}
+.fv-sub{margin:22px auto 0;max-width:600px;font-size:16px;line-height:1.85;color:var(--text-muted);}
+.fv-ticket{position:relative;max-width:560px;margin:0 auto;background:var(--primary-dark);color:var(--primary-light);border-radius:20px;border:1px solid rgba(201,168,118,.22);box-shadow:0 34px 70px -34px rgba(26,31,43,.6);}
+.fv-ticket__top{padding:42px 44px 30px;text-align:center;}
+.fv-ticket__label{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-warm);margin:0 0 16px;}
+.fv-ticket__offer{font-size:14.5px;letter-spacing:.01em;color:rgba(250,248,244,.7);margin:0 0 18px;}
+.fv-ticket__was{display:block;font-size:16px;color:rgba(250,248,244,.42);text-decoration:line-through;text-decoration-thickness:1px;margin-bottom:4px;}
+.fv-ticket__now{display:inline-flex;align-items:baseline;gap:2px;font-family:var(--sans-kr);font-weight:700;font-size:clamp(36px,9.5vw,44px);line-height:1.05;letter-spacing:-.015em;color:var(--accent-warm);}
+.fv-ticket__now .won{font-size:.46em;font-weight:600;letter-spacing:0;}
+.fv-ticket__perf{position:relative;margin:4px 44px;border-top:1.5px dashed rgba(250,248,244,.24);}
+.fv-ticket__perf::before,.fv-ticket__perf::after{content:"";position:absolute;top:0;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--primary-light);}
+.fv-ticket__perf::before{left:-58px;}
+.fv-ticket__perf::after{right:-58px;}
+.fv-ticket__bottom{padding:30px 44px 40px;}
+.fv-ticket__list{list-style:none;margin:0 0 26px;padding:0;}
+.fv-ticket__list li{position:relative;padding-left:30px;font-size:15px;line-height:1.62;color:rgba(250,248,244,.88);margin-bottom:15px;}
+.fv-ticket__list li:last-child{margin-bottom:0;}
+.fv-ticket__list li::before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;background:rgba(201,168,118,.16);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C9A876' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");background-size:11px;background-position:center;background-repeat:no-repeat;}
+.fv-free{display:inline-block;margin-left:5px;padding:2px 9px;border-radius:999px;background:rgba(201,168,118,.16);color:var(--accent-warm);font-size:12px;font-weight:600;letter-spacing:.01em;white-space:nowrap;vertical-align:middle;}
+.fv-cta{position:relative;display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:19px 28px;border:none;border-radius:999px;cursor:pointer;text-decoration:none;overflow:hidden;font-family:var(--sans-kr);font-size:15.5px;font-weight:600;letter-spacing:.01em;color:var(--primary-dark);background:linear-gradient(135deg,#E0C078 0%,#C9A876 52%,#B6934F 100%);box-shadow:0 12px 32px -14px rgba(201,168,118,.65);transition:transform .28s ease,box-shadow .3s ease,background .35s ease;}
+.fv-cta::after{content:"";position:absolute;inset:0;opacity:0;transition:opacity .4s ease;background:radial-gradient(circle at 50% 120%,rgba(255,255,255,.45),transparent 62%);}
+.fv-cta:hover{transform:translateY(-2px);background:linear-gradient(135deg,#EBCD85 0%,#D4AF37 52%,#C29A52 100%);box-shadow:0 18px 42px -14px rgba(201,168,118,.72);}
+.fv-cta:hover::after{opacity:1;}
+.fv-cta:active{transform:translateY(0);}
+.fv-cta__arrow{width:17px;height:17px;flex:0 0 auto;transition:transform .28s ease;}
+.fv-cta:hover .fv-cta__arrow{transform:translateX(4px);}
+@media (max-width:768px){
+.fv{padding:78px 0;}
+.fv-head{margin-bottom:40px;}
+.fv-sub{font-size:15px;line-height:1.8;}
+.fv-ticket__top{padding:34px 26px 26px;}
+.fv-ticket__bottom{padding:26px 26px 32px;}
+.fv-ticket__perf{margin:4px 26px;}
+.fv-ticket__perf::before{left:-40px;}
+.fv-ticket__perf::after{right:-40px;}
+.fv-ticket__list li{font-size:14.5px;}
+.fv-cta{padding:18px 24px;font-size:15px;}
+}
     html.is-embedded .hero,
     html.is-embedded .closing { min-height: 0; }
   </style>
@@ -2508,6 +2549,40 @@
         </div>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<section class="fv" aria-label="첫 방문 혜택 안내">
+  <div class="container">
+    <header class="fv-head reveal">
+      <p class="eyebrow">Book Your First Visit</p>
+      <h2 class="section-title">내 몸의 숨겨진 가동 범위를<br class="br-d">찾을 시간.</h2>
+      <p class="fv-sub">가짜 후기나 광고 대신 오직 ‘실제 몸의 변화’로만 증명합니다. 보건복지부 면허 물리치료사의 정밀 1:1 케어를 애프터스트레칭만의 특별한 웰컴 혜택으로 부담 없이 시작해 보세요.</p>
+    </header>
+
+    <div class="fv-ticket reveal">
+      <div class="fv-ticket__top">
+        <p class="fv-ticket__label">Welcome Ticket · 첫 방문 한정</p>
+        <p class="fv-ticket__offer">보건복지부 면허 물리치료사 1:1 정밀 케어 · 50분</p>
+        <span class="fv-ticket__was">정가 78,000원</span>
+        <span class="fv-ticket__now">35,000<span class="won">원</span></span>
+      </div>
+
+      <div class="fv-ticket__perf" aria-hidden="true"></div>
+
+      <div class="fv-ticket__bottom">
+        <ul class="fv-ticket__list">
+          <li>1:1 프리미엄 패시브 스트레칭 (50min)</li>
+          <li>보건복지부 면허 보유 현직 물리치료사 전담 시술</li>
+          <li>개인별 신체 가동 범위(ROM) 및 근육 긴장도 정밀 평가</li>
+          <li>정밀 진단에 따른 1:1 맞춤형 필라테스 연계 포함<span class="fv-free">추가 비용 0원</span></li>
+        </ul>
+        <a class="fv-cta" href="https://booking.naver.com/booking/13/bizes/1346030/items/7727009" target="_blank" rel="noopener">
+          첫 방문 특별 혜택으로 예약하기
+          <svg class="fv-cta__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>

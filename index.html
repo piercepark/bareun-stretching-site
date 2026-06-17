@@ -697,6 +697,25 @@
       .space-hero--bottom > img { aspect-ratio: 4 / 3; }
     }
 
+    /* ============== INSTAGRAM ============== */
+    .insta { background: var(--primary-light); border-top: 1px solid var(--border); }
+    .insta-head { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+    .insta-sub { font-size: 16px; line-height: 1.85; color: var(--text-muted); margin-top: 20px; }
+    .insta-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .insta-tile { position: relative; display: block; border-radius: 6px; overflow: hidden; background: var(--sub-beige); }
+    .insta-tile img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; transition: transform .55s ease; }
+    .insta-tile:hover img { transform: scale(1.05); }
+    .insta-ov { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(26,31,43,0); transition: background .4s ease; }
+    .insta-ov svg { width: 30px; height: 30px; color: #fff; opacity: 0; transform: scale(.82); transition: opacity .4s ease, transform .4s ease; }
+    .insta-tile:hover .insta-ov { background: rgba(26,31,43,.34); }
+    .insta-tile:hover .insta-ov svg { opacity: 1; transform: scale(1); }
+    .insta-cta { text-align: center; margin-top: 46px; }
+    .insta-follow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--primary-dark); border: 1px solid var(--primary-dark); border-radius: 999px; padding: 15px 30px; text-decoration: none; transition: background .3s ease, color .3s ease; }
+    .insta-follow:hover { background: var(--primary-dark); color: #fff; }
+    .insta-follow svg { width: 17px; height: 17px; }
+    @media (max-width: 900px) { .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+    @media (max-width: 560px) { .insta-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+
     /* ============== FAQ ============== */
     .faq {
       background: var(--primary-light);
@@ -2860,6 +2879,49 @@
           <svg class="fv-cta__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== Section · INSTAGRAM ============== -->
+<section class="insta" id="instagram" aria-label="인스타그램">
+  <div class="container">
+    <header class="insta-head">
+      <p class="eyebrow">Instagram · @passive_stretching</p>
+      <h2 class="section-title" style="margin-bottom:0;">스튜디오의 오늘,<br>인스타그램으로 만나보세요.</h2>
+      <p class="insta-sub">수업 현장과 케어의 순간을 기록합니다. 가장 가까운 소식을 인스타그램에서 먼저 전해 드려요.</p>
+    </header>
+    <div class="insta-grid">
+      <a class="insta-tile" href="https://www.instagram.com/passive_stretching/reel/DZWdBLxhJMn/" target="_blank" rel="noopener" aria-label="애프터스트레칭 인스타그램 게시물 보기">
+        <img src="assets/insta/feed-1.jpg" alt="애프터스트레칭 인스타그램 게시물" loading="lazy">
+        <span class="insta-ov" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></span>
+      </a>
+      <a class="insta-tile" href="https://www.instagram.com/passive_stretching/reel/DZZUGE8BfT2/" target="_blank" rel="noopener" aria-label="애프터스트레칭 인스타그램 게시물 보기">
+        <img src="assets/insta/feed-2.jpg" alt="애프터스트레칭 인스타그램 게시물" loading="lazy">
+        <span class="insta-ov" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></span>
+      </a>
+      <a class="insta-tile" href="https://www.instagram.com/physila_sh/reel/DMJ38EhyeBs/" target="_blank" rel="noopener" aria-label="수현 지점장 인스타그램 게시물 보기">
+        <img src="assets/insta/feed-3.jpg" alt="수현 지점장 인스타그램 게시물" loading="lazy">
+        <span class="insta-ov" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></span>
+      </a>
+      <a class="insta-tile" href="https://www.instagram.com/passive_stretching/p/DZkYvX5AQTO/" target="_blank" rel="noopener" aria-label="애프터스트레칭 인스타그램 게시물 보기">
+        <img src="assets/insta/feed-4.jpg" alt="애프터스트레칭 인스타그램 게시물" loading="lazy">
+        <span class="insta-ov" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></span>
+      </a>
+      <a class="insta-tile" href="https://www.instagram.com/physila_sh/reel/DZeSvesRkX8/" target="_blank" rel="noopener" aria-label="수현 지점장 인스타그램 게시물 보기">
+        <img src="assets/insta/feed-5.jpg" alt="수현 지점장 인스타그램 게시물" loading="lazy">
+        <span class="insta-ov" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></span>
+      </a>
+      <a class="insta-tile" href="https://www.instagram.com/passive_stretching/reel/DNPW37bB0IY/" target="_blank" rel="noopener" aria-label="애프터스트레칭 인스타그램 게시물 보기">
+        <img src="assets/insta/feed-6.jpg" alt="애프터스트레칭 인스타그램 게시물" loading="lazy">
+        <span class="insta-ov" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></span>
+      </a>
+    </div>
+    <div class="insta-cta">
+      <a class="insta-follow" href="https://www.instagram.com/passive_stretching/" target="_blank" rel="noopener" aria-label="애프터스트레칭 인스타그램으로 이동">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+        인스타그램에서 더 보기
+      </a>
     </div>
   </div>
 </section>

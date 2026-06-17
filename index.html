@@ -886,6 +886,42 @@
       .visit-grid { grid-template-columns: 1fr; gap: 18px; }
     }
 
+    /* Live Naver map embed */
+    .visit-map-live {
+      position: relative;
+      height: 440px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--primary-light);
+    }
+    .visit-map-live #naverMap { position: absolute; inset: 0; }
+    .visit-map-open {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      z-index: 10;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      background: rgba(26, 31, 43, 0.88);
+      color: #FAF8F4;
+      font-family: var(--sans-kr);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: .01em;
+      text-decoration: none;
+      box-shadow: 0 6px 18px -8px rgba(0,0,0,.5);
+      transition: background .2s ease;
+    }
+    .visit-map-open svg { stroke: currentColor; }
+    .visit-map-open:hover { background: var(--primary-dark); }
+    @media (max-width: 900px) {
+      .visit-map-live { height: 320px; }
+    }
+
     /* Map "card" — clickable, no real map but visual pin */
     .visit-map {
       position: relative;
@@ -2767,27 +2803,15 @@
     </header>
 
     <div class="visit-grid">
-      <a class="visit-map reveal" href="https://map.naver.com/p/entry/place/1183681566" target="_blank" rel="noopener" aria-label="네이버 지도에서 애프터스트레칭 서울숲점 위치 보기">
-        <div class="visit-map__art" aria-hidden="true">
-          <div class="visit-map__rings">
-            <span></span><span></span><span></span>
-          </div>
-          <svg class="visit-map__pin" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M32 4C18.7452 4 8 14.7452 8 28C8 47 32 76 32 76C32 76 56 47 56 28C56 14.7452 45.2548 4 32 4Z" stroke="currentColor" stroke-width="3" fill="rgba(201,168,118,0.18)"/>
-            <circle cx="32" cy="28" r="9" stroke="currentColor" stroke-width="3" fill="var(--primary-light)"/>
-          </svg>
-        </div>
-        <div class="visit-map__meta">
-          <p class="visit-map__label">Bareun Stretching · 서울숲점</p>
-          <p class="visit-map__addr">서울 성동구 왕십리로 50, B1</p>
-        </div>
-        <span class="visit-map__cta">
-          네이버 지도에서 보기
-          <svg class="visit-map__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <div class="visit-map-live reveal">
+        <div id="naverMap" aria-label="애프터스트레칭 서울숲점 네이버 지도"></div>
+        <a class="visit-map-open" href="https://map.naver.com/p/entry/place/1183681566" target="_blank" rel="noopener" aria-label="네이버 지도에서 길찾기">
+          네이버 지도 길찾기
+          <svg viewBox="0 0 16 16" width="13" height="13" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </span>
-      </a>
+        </a>
+      </div>
 
       <div class="visit-info reveal">
         <dl>
@@ -2914,6 +2938,29 @@
   window.addEventListener('load', postBareunHeight);
   window.addEventListener('resize', postBareunHeight);
   if (window.ResizeObserver) new ResizeObserver(postBareunHeight).observe(document.body);
+</script>
+
+<!-- 네이버 지도 (오시는길) -->
+<script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=0alcxrep0g"></script>
+<script>
+  (function(){
+    function initBareunMap(){
+      if(!window.naver || !naver.maps || !naver.maps.Map){ return setTimeout(initBareunMap, 250); }
+      var el = document.getElementById('naverMap');
+      if(!el) return;
+      var pos = new naver.maps.LatLng(37.5419, 127.044976);
+      var map = new naver.maps.Map(el, { center: pos, zoom: 17, scrollWheel: false });
+      var marker = new naver.maps.Marker({ position: pos, map: map, title: '애프터스트레칭 서울숲점' });
+      var info = new naver.maps.InfoWindow({
+        content: '<div style="padding:9px 13px;font-size:13px;line-height:1.5;color:#1A1F2B;"><strong>애프터스트레칭 · 서울숲점</strong><br><span style="color:#6B6B6B;">왕십리로 50, B1 · 서울숲역 2번 출구</span></div>',
+        borderColor: '#C9A876', borderWidth: 1
+      });
+      info.open(map, marker);
+      naver.maps.Event.addListener(marker, 'click', function(){ info.open(map, marker); });
+    }
+    if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', initBareunMap); }
+    else { initBareunMap(); }
+  })();
 </script>
 
 </body>

@@ -2941,13 +2941,27 @@
 </script>
 
 <!-- 네이버 지도 (오시는길) -->
+<script>
+  /* 네이버 공식 인증실패 콜백 — 도메인 미등록/전파전 등 인증 실패 시 호출됨 */
+  window.navermap_authFailure = function () {
+    var el = document.getElementById('naverMap');
+    if (el) {
+      el.innerHTML = '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:#6B6B6B;font-size:13px;line-height:1.6;">지도를 잠시 불러오지 못했습니다.<br>아래 ‘네이버 지도 길찾기’ 버튼을 눌러주세요.</div>';
+    }
+    if (window.console) console.log('[bareun-map] NAVER MAP 인증 실패 — NCP Web 서비스 URL 등록/전파 확인');
+  };
+</script>
 <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=0alcxrep0g"></script>
 <script>
   (function(){
+    var tries = 0;
     function initBareunMap(){
-      if(!window.naver || !naver.maps || !naver.maps.Map){ return setTimeout(initBareunMap, 250); }
+      tries++;
+      if(!(window.naver && naver.maps && naver.maps.Map)){ if(tries < 80) setTimeout(initBareunMap, 250); return; }
       var el = document.getElementById('naverMap');
-      if(!el) return;
+      if(!el){ if(tries < 80) setTimeout(initBareunMap, 250); return; }   /* div 준비될 때까지 재시도 */
+      if(el.dataset.bareunMap) return;            /* 중복 실행 방지 */
+      el.dataset.bareunMap = '1';
       var pos = new naver.maps.LatLng(37.5419, 127.044976);
       var map = new naver.maps.Map(el, { center: pos, zoom: 17, scrollWheel: false });
       var marker = new naver.maps.Marker({ position: pos, map: map, title: '애프터스트레칭 서울숲점' });
@@ -2959,7 +2973,7 @@
       naver.maps.Event.addListener(marker, 'click', function(){ info.open(map, marker); });
     }
     if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', initBareunMap); }
-    else { initBareunMap(); }
+    initBareunMap();
   })();
 </script>
 

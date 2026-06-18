@@ -130,6 +130,12 @@
 
     .logo-text {
       white-space: nowrap;
+      word-break: keep-all;
+      line-height: 1.25;
+    }
+
+    .logo-x {
+      font-weight: 400;
     }
 
     .logo small {
@@ -170,8 +176,12 @@
       }
 
       .logo {
-        font-size: 19px;
+        font-size: 17px;
         gap: 7px;
+      }
+
+      .logo-text {
+        white-space: normal;
       }
 
       .logo-mark {
@@ -2079,8 +2089,7 @@
 <header class="site-header">
   <div class="container nav">
     <div class="logo">
-      <span class="logo-text">애프터스트레칭</span>
-      <small>BAREUN STRETCHING</small>
+      <span class="logo-text">애프터 <span class="logo-x">x</span> 바른스트레칭</span>
       <img class="logo-mark" src="assets/brand/bareun-logo.svg" alt="" aria-hidden="true">
     </div>
     <a class="nav-cta" href="https://booking.naver.com/booking/13/bizes/1346030/items/7727009" target="_blank" rel="noopener">첫 체험 예약</a>
@@ -2931,8 +2940,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3>애프터스트레칭</h3>
-        <p class="en">Bareun Stretching</p>
+        <h3>애프터 <span class="logo-x">x</span> 바른스트레칭</h3>
         <p>서울 성동구 왕십리로 50, B1</p>
         <p>After Yoga &amp; Pilates 내</p>
         <p>서울숲역 2번 출구 도보 3분</p>

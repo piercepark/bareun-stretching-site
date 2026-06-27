@@ -345,20 +345,19 @@
       pointer-events: none;
     }
 
-    /* ===== HERO · 강사 밴드 ===== */
+    /* ===== HERO · 강사 밴드 (3열 가로 고정 · 무프레임 · 무캡션) ===== */
     .hero-team {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      display: flex;
+      border-radius: 8px;
+      overflow: hidden;
     }
-    .hero-coach { margin: 0; }
+    .hero-coach { flex: 1 1 0; min-width: 0; margin: 0; }
+    .hero-coach + .hero-coach { margin-left: -7%; }
     .hero-coach__media {
       aspect-ratio: 4 / 5;
       width: 100%;
       overflow: hidden;
-      border-radius: 8px;
       background: #FFFFFF;
-      border: 1px solid rgba(201, 168, 118, 0.22);
     }
     .hero-coach__media video,
     .hero-coach__media img {
@@ -367,47 +366,6 @@
       object-fit: cover;
       object-position: center top;
       display: block;
-    }
-    .hero-coach__cap { padding: 18px 2px 0; }
-    .hero-coach__role {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent-warm);
-      margin-bottom: 10px;
-    }
-    .hero-coach__name {
-      font-family: var(--serif-kr);
-      font-weight: 700;
-      font-size: 22px;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      color: var(--primary-dark);
-      margin-bottom: 7px;
-    }
-    .hero-coach__name .en {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      margin-left: 7px;
-      vertical-align: 3px;
-    }
-    .hero-coach__title {
-      font-size: 13.5px;
-      line-height: 1.55;
-      color: var(--text-muted);
-    }
-    @media (max-width: 760px) {
-      .hero-team {
-        grid-template-columns: 1fr;
-        max-width: 340px;
-        margin: 0 auto;
-        gap: 26px;
-      }
     }
 
     /* ============== SECTION GENERIC ============== */
@@ -2200,11 +2158,6 @@
               <img src="assets/instructors/song-chiwoong.png" alt="애프터스트레칭 송치웅 대표" loading="lazy">
             </video>
           </div>
-          <figcaption class="hero-coach__cap">
-            <p class="hero-coach__role">대표 · 프로그램 개발</p>
-            <h3 class="hero-coach__name">송치웅<span class="en">SONG CHIWOONG</span></h3>
-            <p class="hero-coach__title">물리치료사 · 스포츠 현장 케어 경력</p>
-          </figcaption>
         </figure>
         <figure class="hero-coach">
           <div class="hero-coach__media">
@@ -2215,11 +2168,6 @@
               <img src="assets/instructors/kim-suhyun.png" alt="애프터스트레칭 서울숲점 김수현 지점장" loading="lazy">
             </video>
           </div>
-          <figcaption class="hero-coach__cap">
-            <p class="hero-coach__role">서울숲점 지점장</p>
-            <h3 class="hero-coach__name">김수현<span class="en">KIM SUHYUN</span></h3>
-            <p class="hero-coach__title">패시브스트레칭연구소 메인강사</p>
-          </figcaption>
         </figure>
         <figure class="hero-coach">
           <div class="hero-coach__media">
@@ -2230,11 +2178,6 @@
               <img src="assets/instructors/oh-seungeun.png" alt="애프터스트레칭 오승은 팀장" loading="lazy">
             </video>
           </div>
-          <figcaption class="hero-coach__cap">
-            <p class="hero-coach__role">팀장 · 서울숲점 / 우장산역점</p>
-            <h3 class="hero-coach__name">오승은<span class="en">OH SEUNGEUN</span></h3>
-            <p class="hero-coach__title">척추측만증·자세 케어 경험</p>
-          </figcaption>
         </figure>
       </div>
     </div>
